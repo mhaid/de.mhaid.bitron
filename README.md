@@ -1,2 +1,2 @@
-# bitron
+# Bitron
 Bitron for Homey 
