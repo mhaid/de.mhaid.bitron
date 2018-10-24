@@ -38,6 +38,9 @@
 			}
 		]
 	},
+	"bugs": {
+		"url": "https://github.com/mhaid/de.mhaid.bitron/issues"
+	},
 	"capabilities": {
 	},
 	"drivers": [
