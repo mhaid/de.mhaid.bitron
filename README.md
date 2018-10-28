@@ -1,4 +1,4 @@
-# Permundo
+# Bitron
 
 Adds support for Bitron Z-Wave devices.
 
