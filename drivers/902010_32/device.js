@@ -3,7 +3,7 @@
 const Homey = require('homey');
 const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
 
-class Bitron_Device extends ZigBeeDevice {
+class Bitron_902010_32 extends ZigBeeDevice {
 
 	// this method is called when the device is inited and values are changed
 	async onMeshInit() {
@@ -34,6 +34,10 @@ class Bitron_Device extends ZigBeeDevice {
 				return Math.round((value / 100) * 10) / 10;
 			},
 			report: 'occupiedHeatingSetpoint',
+			getOpts: {
+				getOnStart: true,
+				getOnOnline: true,
+			},
 		});
 		// local temperature
 		this.registerCapability('measure_temperature', 'hvacThermostat', {
@@ -43,38 +47,69 @@ class Bitron_Device extends ZigBeeDevice {
 			},
 			report: 'localTemp',
 			getOpts: {
-				getOnLine: true,
 				getOnStart: true,
+				getOnOnline: true,
 			},
 		});
 		// battery
+//		if (this.hasCapability('measure_battery')) {
+//			this.registerCapability('measure_battery', 'genPowerCfg', {
+//				get: 'batteryPercentageRemaining',
+//				reportParser(value) {
+//					return Math.round(value / 2);
+//				},
+//				report: 'batteryPercentageRemaining',
+//				getOpts: {
+//					getOnStart: true,
+//					getOnOnline: true,
+//				},
+//			});
+//		}
 		if (this.hasCapability('measure_battery')) {
 			this.registerCapability('measure_battery', 'genPowerCfg', {
+				get: 'batteryVoltage',
+				reportParser(value) {
+					if ( Math.round((value - 23) / (30 - 23) * 100) > 100 ) {
+						return Math.round(100);
+					} else {
+						return Math.round((value - 23) / (30 - 23) * 100);
+					}
+				},
+				report: 'batteryVoltage',
 				getOpts: {
-					getOnLine: true,
 					getOnStart: true,
+					getOnOnline: true,
 				},
 			});
 		}
 
 		// reportlisteners 
 		// target temperature
-		this.registerAttrReportListener('hvacThermostat', 'occupiedHeatingSetpoint', 1, 300, 50, data => {
-			const parsedValue = Math.round((data / 100) * 10) / 10;
-			this.log('occupiedHeatingSetpoint: ', data, parsedValue);
+		this.registerAttrReportListener('hvacThermostat', 'occupiedHeatingSetpoint', 1, 300, 10, value => {
+			const parsedValue = Math.round((value / 100) * 10) / 10;
+			this.log('hvacThermostat - occupiedHeatingSetpoint: ', value, parsedValue);
 			this.setCapabilityValue('target_temperature', parsedValue);
 		}, 0);
 		// local temperature
-		this.registerAttrReportListener('hvacThermostat', 'localTemp', 1, 300, 50, value => {
+		this.registerAttrReportListener('hvacThermostat', 'localTemp', 1, 300, 10, value => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
 			this.log('hvacThermostat - localTemp: ', value, parsedValue);
 			this.setCapabilityValue('measure_temperature', parsedValue);
 		}, 0);
-		// battery
+		// maesure battery
+//		this.registerAttrReportListener('genPowerCfg', 'batteryPercentageRemaining', 1, 3600, null, value => {
+//			const parsedValue = Math.round(value / 2);
+//			this.log('genPowerCfg - batteryPercentageRemaining: ', value, parsedValue);
+//			this.setCapabilityValue('measure_battery', parsedValue);
+//		}, 0);
 		this.registerAttrReportListener('genPowerCfg', 'batteryVoltage', 300, 3600, null, value => {
-			const parsedValue = Math.round((value - 25) / 5 * 100);
-			this.log('genPowerCfg - batteryVoltage: ', value, parsedValue);
-			this.setCapabilityValue('measure_battery', parsedValue);
+			if ( Math.round((value - 23) / (30 - 23) * 100) > 100 ) {
+				this.log('genPowerCfg - batteryVoltage: ', value, Math.round(100));
+				this.setCapabilityValue('measure_battery', Math.round(100));
+			} else {
+				this.log('genPowerCfg - batteryVoltage: ', value, Math.round((value - 23) / (30 - 23) * 100));
+				this.setCapabilityValue('measure_battery', Math.round((value - 23) / (30 - 23) * 100));
+			}
 		}, 0);
 
 	}
@@ -84,13 +119,13 @@ class Bitron_Device extends ZigBeeDevice {
 		this.log(changedKeysArr);
 		this.log('newSettingsObj', newSettingsObj);
 		this.log('oldSettingsObj', oldSettingsObj);
-		this.log('test: ', changedKeysArr.includes('temperature_calibration'));
+		this.log('test: ', changedKeysArr.includes('temperature_Calibration'));
 
-		// temperature calibration changed
-		if (changedKeysArr.includes('temperature_calibration')) {
-			this.log('temperature_calibration: ', newSettingsObj.temperature_calibration);
+		// localTemperatureCalibration changed
+		if (changedKeysArr.includes('temperature_Calibration')) {
+			this.log('temperature_Calibration: ', newSettingsObj.temperature_Calibration);
 			callback(null, true);
-			this.node.endpoints[0].clusters.hvacThermostat.write('localTemperatureCalibration', newSettingsObj.temperature_calibration)
+			this.node.endpoints[0].clusters.hvacThermostat.write('localTemperatureCalibration', newSettingsObj.temperature_Calibration)
 				.then(result => {
 					this.log('localTemperatureCalibration: ', result);
 				})
@@ -99,19 +134,8 @@ class Bitron_Device extends ZigBeeDevice {
 					this.log(err);
 				});
 		}
-		// target temperature changed
-		if (changedKeysArr.includes('target_temperature')) {
-			this.log('target_temperature: ', newSettingsObj.target_temperature);
-			callback(null, true);
-			this.node.endpoints[0].clusters.hvacThermostat.write('localTargetTemperature', newSettingsObj.target_temperature)
-				.then(result => {
-					this.log('localTargetTemperature: ', result);
-				})
-				.catch(err => {
-					this.log('could not write localTargetTemperature');
-					this.log(err);
-				});
-		}
 	}
+
 }
-module.exports = Bitron_Device;
+
+module.exports = Bitron_902010_32;
