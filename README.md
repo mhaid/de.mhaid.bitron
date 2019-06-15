@@ -3,9 +3,11 @@
 Adds support for Bitron ZigBee devices.
 
 Supported devices:
+- Smart Switch 902010_28 (AV2010/28)
 - Wall Thermostat with Relais 902010_32 (AV 2010/32)
 
-Manual: 
+Manual:
+http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-schaltfunktion/
 http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/funkthermostat/
 
 Comments:
@@ -21,3 +23,6 @@ No device history available
 
 2.0.0 
 Works now with Homey version 2.x
+
+2.0.1
+Added support for Smart Switch 902010_28 (AV2010/28)

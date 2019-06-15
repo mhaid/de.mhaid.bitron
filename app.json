@@ -1,7 +1,7 @@
 {
 	"id": "de.mhaid.bitron",
 	"sdk": 2,
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"compatibility": ">=1.5.6",
 	"name": {
 		"nl": "Bitron",
@@ -42,6 +42,10 @@
 			{
 				"email": "mhaid2016@outlook.com",
 				"name": "Morris Haid"
+			},
+			{
+				"email": "menno.van.eck@gmail.com",
+				"name": "Menno van Eck"
 			}
 		]
 	},
@@ -51,6 +55,36 @@
 	"capabilities": {
 	},
 	"drivers": [
+		{
+			"id": "902010_28",
+			"class": "socket",
+			"capabilities": [
+				"onoff"
+			],
+			"name": {
+				"nl":"Smart Plug 902010/28",
+				"en":"Smart Plug 902010/28",
+				"de":"Smart Plug 902010/28"
+			},
+			"zigbee": {
+				"manufacturerName": "Bitron Home",
+				"manufacturerID": "Bitron Home",
+				"productId": "902010/28",
+				"deviceId": 9,
+				"profileId": 260,
+				"learnmode": {
+					"instruction": {
+						"nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+						"en": "Press on/off button until red led flashes.",
+						"de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+					}
+				}
+			},
+			"images": {
+				"large": "/drivers/902010_28/assets/images/large.png",
+				"small": "/drivers/902010_28/assets/images/small.png"
+			}
+		},
 		{
 			"id": "902010_32",
 			"class": "thermostat",
@@ -83,7 +117,7 @@
 				"manufacturerID": "Bitron Home",
 				"productId": "902010/32",
 				"deviceId": 769,
-                "profileId": 260,
+				"profileId": 260,
 				"learnmode": {
 					"instruction": {
 						"nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (“no NET“ op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
