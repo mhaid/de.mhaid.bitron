@@ -9,17 +9,18 @@
 		"de": "Bitron"
 	},
 	"description": {
-		"nl": "Voegt ondersteuning voor Bitron thermostaat apparaat toe.",
-		"en": "Adds support for Bitron thermostat device.",
-		"de": "Fügt Unterstützung für Bitron Thermostat hinzu."
+		"nl": "Voegt ondersteuning voor Bitron-apparaten toe.",
+		"en": "Adds support for Bitron devices.",
+		"de": "FÃ¼gt UnterstÃ¼tzung fÃ¼r Bitron GerÃ¤te hinzu."
 	},
 	"category": [
-		"climate"
+		"climate",
+		"tools"
 	],
 	"tags": {
-		"nl": [ "Bitron", "thermostaat" ],
-		"en": [ "Bitron", "thermostat" ],
-		"de": [ "Bitron", "Thermostat" ]
+		"nl": [ "Bitron", "thermostaat", "smart plug" ],
+		"en": [ "Bitron", "thermostat", "smart plug" ],
+		"de": [ "Bitron", "Thermostat", "Smart Plug" ]
 	},
 	"images": {
 		"large": "/assets/images/large.png",
@@ -76,7 +77,7 @@
 					"instruction": {
 						"nl": "Duw op de aan/uit knop totdat de rode led knippert.",
 						"en": "Press on/off button until red led flashes.",
-						"de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+						"de": "DrÃ¼cken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
 					}
 				}
 			},
@@ -120,9 +121,9 @@
 				"profileId": 260,
 				"learnmode": {
 					"instruction": {
-						"nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (“no NET“ op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
-						"en": "If the device is not part of a ZigBee network (device not joined), press any of the buttons for at least 1 second to start the join process.\n\nIf no open ZigBee network is found, the termostat will return to the unjoined state (“no NET” message on the LCD-display).\n\nPlease read the user manual for additional information.",
-						"de": "Wenn das Gerät nicht Teil eines ZigBee-Netzwerks ist (Gerät nicht verbunden), drücken Sie mindestens 1 Sekunde lang eine beliebige Taste, um den Verbindungsvorgang zu starten.\n\nWenn kein offenes ZigBee-Netzwerk gefunden wird, kehrt der Termostat in den nicht verbundenen Zustand zurück (Meldung “no NET“ auf dem LCD-Display).\n\nBitte lesen Sie das Benutzerhandbuch, um weitere Informationen zu erhalten."
+						"nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (â€œno NETâ€ op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
+						"en": "If the device is not part of a ZigBee network (device not joined), press any of the buttons for at least 1 second to start the join process.\n\nIf no open ZigBee network is found, the termostat will return to the unjoined state (â€œno NETâ€ message on the LCD-display).\n\nPlease read the user manual for additional information.",
+						"de": "Wenn das GerÃ¤t nicht Teil eines ZigBee-Netzwerks ist (GerÃ¤t nicht verbunden), drÃ¼cken Sie mindestens 1 Sekunde lang eine beliebige Taste, um den Verbindungsvorgang zu starten.\n\nWenn kein offenes ZigBee-Netzwerk gefunden wird, kehrt der Termostat in den nicht verbundenen Zustand zurÃ¼ck (Meldung â€œno NETâ€ auf dem LCD-Display).\n\nBitte lesen Sie das Benutzerhandbuch, um weitere Informationen zu erhalten."
 					}
 				}
 			},
@@ -137,8 +138,8 @@
 					},
 					"hint": {
 						"nl": "Specificeert een lineaire offset naar de waarde van de temperatuursensor.\n\nHet resultaat is dat het apparaat alle gemeten sensorwaarden interpreteert als gemeten sensorwaarde + offset.",
-						"en": "Specifies a linear offset to the temperature sensor’s value.\n\nIt will result in the device interpreting all measured sensor values as measured sensor value + offset.",
-						"de": "Gibt einen linearen Versatz zum Wert des Temperatursensors an.\n\nDas Gerät interpretiert alle gemessenen Sensorwerte als gemessenen Sensorwert + Versatz."
+						"en": "Specifies a linear offset to the temperature sensor's value.\n\nIt will result in the device interpreting all measured sensor values as measured sensor value + offset.",
+						"de": "Gibt einen linearen Versatz zum Wert des Temperatursensors an.\n\nDas GerÃ¤t interpretiert alle gemessenen Sensorwerte als gemessenen Sensorwert + Versatz."
 					},
 					"value": 0,
 					"attr": {
