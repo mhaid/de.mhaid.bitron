@@ -7,6 +7,7 @@ Supported devices:
 - Wall Thermostat with Relais 902010_32 (AV 2010/32)
 
 Manual:
+
 http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-schaltfunktion/
 http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/funkthermostat/
 
