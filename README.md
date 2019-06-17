@@ -27,4 +27,4 @@ No device history available
 Works now with Homey version 2.x
 
 2.0.1
-Added support for Smart Switch 902010_28 (AV2010/28)
+Added support for Smart Plug 902010_28 (AV2010/28)
