@@ -68,8 +68,8 @@
 				"de":"Smart Plug 902010/28"
 			},
 			"zigbee": {
-				"manufacturerName": "Bitron Home",
-				"manufacturerID": "Bitron Home",
+				"manufacturerName": ["Bitron Home","Bitron Video"],
+				"manufacturerID": ["Bitron Home","Bitron Video"],
 				"productId": "902010/28",
 				"deviceId": 9,
 				"profileId": 260,
