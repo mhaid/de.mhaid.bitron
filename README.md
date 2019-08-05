@@ -4,6 +4,7 @@ Adds support for Bitron ZigBee devices.
 
 
 Supported devices:
+- Smart Plug 902010_25
 - Smart Plug 902010_28 (AV2010/28)
 - Wall Thermostat with Relais 902010_32 (AV 2010/32)
 
@@ -33,3 +34,6 @@ Works now with Homey version 2.x
 
 2.0.1
 Added support for Smart Plug 902010_28 (AV2010/28)
+
+2.0.2
+Added support for Smart Plug 902010_25
