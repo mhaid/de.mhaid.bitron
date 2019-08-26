@@ -23,7 +23,7 @@ class Bitron_902010_25 extends ZigBeeDevice {
 				},
 			});
 		}
-		// capabilities
+		
 		// measure_power
 		if (this.hasCapability('measure_power')) {
 			this.registerCapability('measure_power', 'seMetering', {
@@ -39,7 +39,8 @@ class Bitron_902010_25 extends ZigBeeDevice {
 				},
 			});
 		}
-
+		
+		// meter_power
 		if (this.hasCapability('meter_power')) {
 			this.registerCapability('meter_power', 'seMetering', {
 				get: 'currentSummDelivered',
@@ -56,6 +57,7 @@ class Bitron_902010_25 extends ZigBeeDevice {
 			});
 		}
 
+		// meter_received
 		if (this.hasCapability('meter_received')) {
 			this.registerCapability('meter_received', 'seMetering', {
 				get: 'currentSummReceived',
