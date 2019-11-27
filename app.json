@@ -94,6 +94,9 @@
 				"target_temperature",
 				"measure_temperature"
 			],
+			"energy": {
+				"batteries": [ "AA", "AA" ]
+			},
 			"capabilitiesOptions": {
 				"target_temperature": {
 					"min": 7,
