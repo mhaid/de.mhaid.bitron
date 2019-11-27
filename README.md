@@ -20,16 +20,3 @@ Bitron or Bitron Video is now part of SMABiT GmbH. Devices are sold also by Qivi
 
 Some functions others than the basics do not work properly yet.
 Therefore any kind of support would be helpful to further improve the app.
-
-
-Updates:
-
-1.0.0
-First version
-No device history available
-
-2.0.0 
-Works now with Homey version 2.x
-
-2.0.1
-Added support for Smart Plug 902010_28 (AV2010/28)
