@@ -1,0 +1,11 @@
+{
+  "1.0.0": {
+    "en": "First version. No device history available."
+  },
+  "2.0.0": {
+    "en": "Works now with Homey version 2.x."
+  },
+  "2.0.1": {
+    "en": "Added support for Smart Plug 902010_28 (AV2010/28)."
+  },
+}
