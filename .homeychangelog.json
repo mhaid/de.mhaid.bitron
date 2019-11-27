@@ -1,11 +1,17 @@
 {
   "1.0.0": {
-    "en": "First version. No device history available."
+    "en": "First version. No device history available.",
+    "de": "Erste Version. Keine Gerätehistorie verfügbar.",
+    "nl": "Eerste versie. Geen apparaatgeschiedenis beschikbaar."
   },
   "2.0.0": {
-    "en": "Works now with Homey version 2.x."
+    "en": "Works now with Homey version 2.x.",
+    "de": "Funktioniert jetzt mit der Homey-Version 2.x.",
+    "nl": "Werkt nu met Homey versie 2.x."
   },
   "2.0.1": {
-    "en": "Added support for Smart Plug 902010_28 (AV2010/28)."
+    "en": "Added support for Smart Plug 902010_28 (AV2010/28).",
+    "de": "Unterstützung für Smart Plug 902010_28 (AV2010/28) hinzugefügt.",
+    "nl": "Ondersteuning toegevoegd voor Smart Plug 902010_28 (AV2010/28)."
   },
 }
