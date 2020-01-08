@@ -51,6 +51,23 @@ class Bitron_902010_32 extends ZigBeeDevice {
 				getOnOnline: true,
 			},
 		});
+		// thermostat mode
+		if (this.hasCapability('thermostat_mode')) {
+			this.registerCapability('thermostat_mode', 'hvacThermostat', {
+				get: 'systemMode',
+				reportParser(value) {
+					if(value == 0) { return "off"; } //OFF
+					else if(value == 3) { return "cool"; } //Cooling
+					else if(value == 4) { return "heat"; } //Heating
+					else { return "heat"; } //Default (Heating)
+				},
+				report: 'systemMode',
+				getOpts: {
+					getOnStart: true,
+					getOnOnline: true,
+				},
+			});
+		}
 		// battery
 //		if (this.hasCapability('measure_battery')) {
 //			this.registerCapability('measure_battery', 'genPowerCfg', {
@@ -96,6 +113,17 @@ class Bitron_902010_32 extends ZigBeeDevice {
 			this.log('hvacThermostat - localTemp: ', value, parsedValue);
 			this.setCapabilityValue('measure_temperature', parsedValue);
 		}, 0);
+		// thermostat mode
+		this.registerAttrReportListener('hvacThermostat', 'systemMode', 1, 300, 4, value => {
+			let parsedValue = "heat";
+			
+			if(value == 0) { parsedValue = "off"; } //OFF
+			else if(value == 3) { parsedValue = "cool"; } //Cooling
+			else if(value == 4) { parsedValue = "heat"; } //Heating (default)
+			
+			this.log('hvacThermostat - systemMode: ', parsedValue);
+			this.setCapabilityValue('thermostat_mode', parsedValue);
+		}, 0);
 		// maesure battery
 //		this.registerAttrReportListener('genPowerCfg', 'batteryPercentageRemaining', 1, 3600, null, value => {
 //			const parsedValue = Math.round(value / 2);
@@ -110,19 +138,6 @@ class Bitron_902010_32 extends ZigBeeDevice {
 				this.log('genPowerCfg - batteryVoltage: ', value, Math.round((value - 23) / (30 - 23) * 100));
 				this.setCapabilityValue('measure_battery', Math.round((value - 23) / (30 - 23) * 100));
 			}
-		}, 0);
-		// thermostat mode
-		this.registerAttrReportListener('hvacThermostat', 'systemMode', 1, 300, 4, value => {
-			String parsedValue = "heat";
-			//OFF
-			if(value == 0) { parsedValue = "off"; }
-			//Cooling
-			else if(value == 3) { parsedValue = "cool"; }
-			//Heating (default)
-			else if(value == 4) { parsedValue = "heat"; }
-			
-			this.log('hvacThermostat - systemMode: ', parsedValue);
-			this.setCapabilityValue('thermostat_mode', parsedValue);
 		}, 0);
 
 	}

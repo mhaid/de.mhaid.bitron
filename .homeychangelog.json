@@ -23,5 +23,10 @@
     "en": "Added flow trigger when thermostat mode change (902010_32).",
     "de": "Flow Trigger bei einer Änderung des Thermostatmodus hinzugefügt (902010_32).",
     "nl": "Flow trigger toegevoegd bij het wijzigen van de thermostaatmodus (902010_32)."
+  },
+  "2.0.4": {
+    "en": "Added flow trigger when thermostat mode change (902010_32).",
+    "de": "Flow Trigger bei einer Änderung des Thermostatmodus hinzugefügt (902010_32).",
+    "nl": "Flow trigger toegevoegd bij het wijzigen van de thermostaatmodus (902010_32)."
   }
 }
