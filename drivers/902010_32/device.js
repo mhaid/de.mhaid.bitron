@@ -111,6 +111,19 @@ class Bitron_902010_32 extends ZigBeeDevice {
 				this.setCapabilityValue('measure_battery', Math.round((value - 23) / (30 - 23) * 100));
 			}
 		}, 0);
+		// thermostat mode
+		this.registerAttrReportListener('hvacThermostat', 'systemMode', 1, 300, 4, value => {
+			String parsedValue = "heat";
+			//OFF
+			if(value == 0) { parsedValue = "off"; }
+			//Cooling
+			else if(value == 3) { parsedValue = "cool"; }
+			//Heating (default)
+			else if(value == 4) { parsedValue = "heat"; }
+			
+			this.log('hvacThermostat - systemMode: ', parsedValue);
+			this.setCapabilityValue('thermostat_mode', parsedValue);
+		}, 0);
 
 	}
 
