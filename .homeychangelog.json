@@ -18,5 +18,10 @@
     "en": "Added support for Homey Energy. Works now with the new AppStore. Small Bugfixes.",
     "de": "Unterstützung für Homey Energy wurde zugefügt. Funktioniert jetzt mit dem neuen AppStore. Kleine Bugfixes.",
     "nl": "Ondersteuning voor Homey Energy toegevoegd. Werkt nu met de nieuwe AppStore. Kleine foutjes."
+  },
+  "2.0.3": {
+    "en": "Added flow trigger when thermostat mode change (902010_32).",
+    "de": "Flow Trigger bei einer Änderung des Thermostatmodus hinzugefügt (902010_32).",
+    "nl": "Flow trigger toegevoegd bij het wijzigen van de thermostaatmodus (902010_32)."
   }
 }
