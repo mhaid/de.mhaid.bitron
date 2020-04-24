@@ -92,8 +92,7 @@
 			"capabilities": [ 
 				"measure_battery",
 				"target_temperature",
-				"measure_temperature",
-				"thermostat_mode"
+				"measure_temperature"
 			],
 			"energy": {
 				"batteries": [ "AA", "AA" ]
@@ -151,6 +150,21 @@
 						"min": -2.5,
 						"max": 2.5
 					}
+				},
+				{
+					"id": "heatOnly_enabled",
+					"type": "checkbox",
+					"label": {
+						"nl": "Alleen de verwarmingsmodus",
+						"en": "Only heating mode",
+						"de": "Nur Heizmodus"
+					},
+					"hint": {
+						"nl": "Als het apparaat is ingeschakeld, kan het alleen maar verwarmen. In plaats van 'Koeling' wordt 'Uit' als thermostaatstand weergegeven.",
+						"en": "When on, the appliance can only heat. Instead of 'Cooling', 'Off' is displayed as thermostat mode.",
+						"de": "Wenn an, kann das Gerät nur heizen. Anstelle von 'Kühlen' wird 'Aus' als Thermomostat-Modus angezeigt."
+					},
+					"value": true
 				}
 			],
 			"mobile": {
