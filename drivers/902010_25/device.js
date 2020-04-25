@@ -58,7 +58,7 @@ class Bitron_902010_25 extends ZigBeeDevice {
 		}
 
 		// meter_received
-		if (this.hasCapability('meter_received')) {
+		/*if (this.hasCapability('meter_received')) {
 			this.registerCapability('meter_received', 'seMetering', {
 				get: 'currentSummReceived',
 				reportParser(value) {
@@ -71,7 +71,7 @@ class Bitron_902010_25 extends ZigBeeDevice {
 					pollInterval: 1000,
 				},
 			});
-		}
+		}*/
 
 		// reportlisteners
 		// Report is send if status is changed or after 5 min
