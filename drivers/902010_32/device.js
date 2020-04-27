@@ -5,7 +5,6 @@ const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
 
 var localTempVar = 2100;
 var occupiedHeatingSetpointVar = 2100;
-var occupiedHeatingSetpointVarTmp = 2100;
 
 class Bitron_902010_32 extends ZigBeeDevice {
 
@@ -78,7 +77,6 @@ class Bitron_902010_32 extends ZigBeeDevice {
 							});
 					}
 				} else {
-					occupiedHeatingSetpointVarTmp = value;
 					//set occupiedHeatingSetpoint
 					this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
 						Math.round(value * 1000 / 10))
@@ -248,7 +246,15 @@ class Bitron_902010_32 extends ZigBeeDevice {
 						this.node.endpoints[0].clusters.hvacThermostat.write('systemMode', 4)
 							.then(result => {
 								this.log('systemMode: ', result);
-								callback(null, true);
+								this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
+									Math.round(occupiedHeatingSetpointVar * 1000 / 10))
+									.then(res => {
+										this.log('write occupiedHeatingSetpoint: ', res);
+										callback(null, true);
+									})
+									.catch(err => {
+										this.error('Error write occupiedHeatingSetpoint: ', err);
+									});
 							})
 							.catch(err => {
 								this.log('could not write systemMode', err);
