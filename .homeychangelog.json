@@ -1,4 +1,4 @@
-﻿{
+{
   "1.0.0": {
     "en": "First version. No device history available.",
     "de": "Erste Version. Keine Gerätehistorie verfügbar.",
@@ -28,5 +28,8 @@
     "en": "Added flow trigger when thermostat mode change (902010_32).",
     "de": "Flow Trigger bei einer Änderung des Thermostatmodus hinzugefügt (902010_32).",
     "nl": "Flow trigger toegevoegd bij het wijzigen van de thermostaatmodus (902010_32)."
+  },
+  "2.1.0": {
+    "en": "Added support for connected cooling devices (902010/32). Several bugfixes"
   }
 }
