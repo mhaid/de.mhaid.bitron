@@ -53,6 +53,12 @@
 	"bugs": {
 		"url": "https://github.com/mhaid/de.mhaid.bitron/issues"
 	},
+	"source": {
+		"url": "https://github.com/mhaid/de.mhaid.bitron/"
+	},
+	"support": {
+		"url": "mailto:mhaid2016@outlook.com"
+	},
 	"capabilities": {
 	},
 	"drivers": [
@@ -160,9 +166,9 @@
 						"de": "Nur Heizmodus"
 					},
 					"hint": {
-						"nl": "Als het apparaat is ingeschakeld, kan het alleen maar verwarmen. In plaats van 'Koeling' wordt 'Uit' als thermostaatstand weergegeven.",
-						"en": "When on, the appliance can only heat. Instead of 'Cooling', 'Off' is displayed as thermostat mode.",
-						"de": "Wenn an, kann das Gerät nur heizen. Anstelle von 'Kühlen' wird 'Aus' als Thermomostat-Modus angezeigt."
+						"nl": "Wanneer het apparaat actief is, kan het alleen verwarmen.\n\nAlleen deactiveren als er een koelsysteem op de thermostaat is aangesloten!",
+						"en": "When active, the appliance can only heat.\n\nOnly deactivate if a cooling system is connected to the thermostat!",
+						"de": "Wenn aktiv, kann das Gerät nur heizen.\n\nNur deaktivieren, wenn eine Kühlung am Thermostat angeschlossen wurde!"
 					},
 					"value": true
 				}
