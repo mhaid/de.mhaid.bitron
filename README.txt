@@ -1,5 +1,3 @@
-Adds support for Bitron ZigBee devices.
-
 Supported devices:
 - Smart Plug 902010_28 (AV2010/28)
 - Wall Thermostat with Relais 902010_32 (AV 2010/32)

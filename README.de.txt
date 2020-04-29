@@ -1,5 +1,3 @@
-Unterstützung für Bitron ZigBee-Geräte hinzugefügt.
-
 Unterstützte Geräte:
 - Intelligenter Stecker 902010_28 (AV2010/28)
 - Wandthermostat mit Relais 902010_32 (AV 2010/32)

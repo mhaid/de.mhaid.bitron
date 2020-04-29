@@ -1,5 +1,3 @@
-Voegt ondersteuning voor Bitron ZigBee-apparaten toe.
-
 Ondersteunde apparaten:
 - Slimme stekker 902010_28 (AV2010/28)
 - Wandthermostaat met Relais 902010_32 (AV 2010/32)
