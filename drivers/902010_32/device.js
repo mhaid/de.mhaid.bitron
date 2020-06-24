@@ -1,7 +1,8 @@
 'use strict';
 
 const Homey = require('homey');
-const ZigBeeDevice = require('homey-meshdriver').ZigBeeDevice;
+const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { CLUSTER } = require('zigbee-clusters');
 
 var localTempVar = 2100;
 var occupiedHeatingSetpointVar = 2100;
@@ -9,7 +10,7 @@ var occupiedHeatingSetpointVar = 2100;
 class Bitron_902010_32 extends ZigBeeDevice {
 
 	// this method is called when the device is inited and values are changed
-	async onMeshInit() {
+	async onNoteInit({ zclNode }) {
 
 		// enable debugging
 		this.enableDebug();
@@ -19,7 +20,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 
 		// capabilities
 		// target temperature
-		this.registerCapability('target_temperature', 'hvacThermostat', {
+		this.registerCapability('target_temperature', CLUSTER.THERMOSTAT, {
 			set: 'occupiedHeatingSetpoint',
 			setParser(value) {
 
@@ -27,65 +28,53 @@ class Bitron_902010_32 extends ZigBeeDevice {
 				if(settings.heatOnly_enabled == false) {
 					if(localTempVar < value) {
 						//set mode heat
-						this.node.endpoints[0].clusters.hvacThermostat.write('systemMode',
-							4)
-							.then(res => {
-								this.log('write systemMode: ', res);
-
-								//set occupiedHeatingSetpoint
-								this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
-									Math.round(value * 1000 / 10))
-									.then(res => {
-										this.log('write occupiedHeatingSetpoint: ', res);
-									})
-									.catch(err => {
-										this.error('Error write occupiedHeatingSetpoint: ', err);
-									});
-							})
-							.catch(err => {
-								this.error('Error write systemMode: ', err);
-							});
+						try {
+							var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',4);
+						
+							this.log('write systemMode: ', res);
+							//set occupiedHeatingSetpoint
+							try {
+								res = await zclNode.endpoints[1].clusters.thermostat.write('occupiedHeatingSetpoint',Math.round(value * 1000 / 10));
+								this.log('write occupiedHeatingSetpoint: ', res);
+							} catch (err) {
+								this.error('Error write occupiedHeatingSetpoint: ', err);
+							}
+						} catch (err) {
+							this.error('Error write systemMode: ', err);
+						}
 					} else if(localTempVar > value) {
 						//set mode cool
-						this.node.endpoints[0].clusters.hvacThermostat.write('systemMode',
-							3)
-							.then(res => {
-								this.log('write systemMode: ', res);
+						try {
+							var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',3);
+							this.log('write systemMode: ', res);
 
-								//set occupiedCoolingSetpoint
-								this.node.endpoints[0].clusters.hvacThermostat.write('occupiedCoolingSetpoint',
-									Math.round(value * 1000 / 10))
-									.then(res => {
-										this.log('write occupiedCoolingSetpoint: ', res);
-									})
-									.catch(err => {
-										this.error('Error write occupiedCoolingSetpoint: ', err);
-									});
-							})
-							.catch(err => {
-								this.error('Error write systemMode: ', err);
-							});
+							//set occupiedCoolingSetpoint
+							try {
+								res = await zclNode.endpoints[1].clusters.thermostat.write('occupiedCoolingSetpoint',Math.round(value * 1000 / 10));
+								this.log('write occupiedCoolingSetpoint: ', res);
+							} catch (err) {
+								this.error('Error write occupiedCoolingSetpoint: ', err);
+							}
+						} catch(err) {
+							this.error('Error write systemMode: ', err);
+						}
 					} else {
 						//set mode off
-						this.node.endpoints[0].clusters.hvacThermostat.write('systemMode',
-							0)
-							.then(res => {
-								this.log('write systemMode: ', res);
-							})
-							.catch(err => {
-								this.error('Error write systemMode: ', err);
-							});
+						try {
+							var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',0);
+							this.log('write systemMode: ', res);
+						} catch(err) {
+							this.error('Error write systemMode: ', err);
+						}
 					}
 				} else {
 					//set occupiedHeatingSetpoint
-					this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
-						Math.round(value * 1000 / 10))
-						.then(res => {
-							this.log('write occupiedHeatingSetpoint: ', res);
-						})
-						.catch(err => {
-							this.error('Error write occupiedHeatingSetpoint: ', err);
-						});
+					try {
+						var res = await zclNode.endpoints[1].clusters.thermostat.write('occupiedHeatingSetpoint',Math.round(value * 1000 / 10));
+						this.log('write occupiedHeatingSetpoint: ', res);
+					} catch(err => {
+						this.error('Error write occupiedHeatingSetpoint: ', err);
+					}
 				}
 				return null;
 			},
@@ -100,12 +89,12 @@ class Bitron_902010_32 extends ZigBeeDevice {
 			},
 		});
 		// local temperature
-		this.registerCapability('measure_temperature', 'hvacThermostat', {
-			get: 'localTemp',
+		this.registerCapability('measure_temperature', CLUSTER.THERMOSTAT, {
+			get: 'localTemperature',
 			reportParser(value) {
 				return Math.round((value / 100) * 10) / 10;
 			},
-			report: 'localTemp',
+			report: 'localTemperature',
 			getOpts: {
 				getOnStart: true,
 				getOnOnline: true,
@@ -113,22 +102,20 @@ class Bitron_902010_32 extends ZigBeeDevice {
 		});
 		// thermostat mode
 // 		if (this.hasCapability('thermostat_mode')) {
-//			this.registerCapability('thermostat_mode', 'hvacThermostat', {
+//			this.registerCapability('thermostat_mode', CLUSTER.THERMOSTAT, {
 //				set: 'systemMode',
 // 				setParser(value) {
 // 					var sendValue = 4;
 // 					if(value == "off") { sendValue = 0; } //OFF
 // 					else if(value == "cool") { sendValue = 3; } //Cooling
 // 					else if(value == "heat") { sendValue = 4; } //Heating
-
-// 					this.node.endpoints[0].clusters.hvacThermostat.write('systemMode',
-// 						sendValue)
-// 						.then(res => {
-// 							this.log('write systemMode: ', res);
-// 						})
-// 						.catch(err => {
-// 							this.error('Error write systemMode: ', err);
-// 						});
+					
+//					try {
+// 						var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',sendValue);
+// 						this.log('write systemMode: ', res);
+// 					} catch(err) {
+// 						this.error('Error write systemMode: ', err);
+// 					}
 // 					return null;
 // 				},
 // 				get: 'systemMode',
@@ -147,7 +134,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 // 		}
 		// battery
 //		if (this.hasCapability('measure_battery')) {
-//			this.registerCapability('measure_battery', 'genPowerCfg', {
+//			this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
 //				get: 'batteryPercentageRemaining',
 //				reportParser(value) {
 //					return Math.round(value / 2);
@@ -160,7 +147,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 //			});
 //		}
 		if (this.hasCapability('measure_battery')) {
-			this.registerCapability('measure_battery', 'genPowerCfg', {
+			this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
 				get: 'batteryVoltage',
 				reportParser(value) {
 					if ( Math.round((value - 23) / (30 - 23) * 100) > 100 ) {
@@ -178,35 +165,68 @@ class Bitron_902010_32 extends ZigBeeDevice {
 		}
 
 		// reportlisteners 
+		await this.configureAttributeReporting([
+			{
+				endpointId: 1,
+				cluster: CLUSTER.THERMOSTAT,
+				attributeName: 'occupiedHeatingSetpoint',
+				minInterval: 1,
+				maxInterval: 300,
+				minChange: 10,
+			},
+			{
+				endpointId: 1,
+				cluster: CLUSTER.THERMOSTAT,
+				attributeName: 'localTemperature',
+				minInterval: 1,
+				maxInterval: 300,
+				minChange: 10,
+			},
+			/*{
+				endpointId: 1,
+				cluster: CLUSTER.POWER_CONFIGURATION,
+				attributeName: 'batteryPercentageRemaining',
+				minInterval: 1,
+				maxInterval: 3600,
+			},*/
+			{
+				endpointId: 1,
+				cluster: CLUSTER.POWER_CONFIGURATION,
+				attributeName: 'batteryVoltage',
+				minInterval: 300,
+				maxInterval: 3600,
+			}
+		]);
+
 		// target temperature
-		this.registerAttrReportListener('hvacThermostat', 'occupiedHeatingSetpoint', 1, 300, 10, value => {
+		zclNode.endpoints[1].clusters.thermostat.on('attr.occupiedHeatingSetpoint', (value) => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
-			this.log('hvacThermostat - occupiedHeatingSetpoint: ', value, parsedValue);
+			this.log('thermostat - occupiedHeatingSetpoint: ', value, parsedValue);
 			occupiedHeatingSetpointVar = parsedValue;
 			this.setCapabilityValue('target_temperature', parsedValue);
-		}, 0);
+		});
 		// local temperature
-		this.registerAttrReportListener('hvacThermostat', 'localTemp', 1, 300, 10, value => {
+		zclNode.endpoints[1].clusters.thermostat.on('attr.localTemperature', (value) => {
 			const parsedValue = Math.round((value / 100) * 10) / 10;
-			this.log('hvacThermostat - localTemp: ', value, parsedValue);
+			this.log('thermostat - localTemperature: ', value, parsedValue);
 			localTempVar = parsedValue;
 			this.setCapabilityValue('measure_temperature', parsedValue);
-		}, 0);
+		});
 		// maesure battery
-//		this.registerAttrReportListener('genPowerCfg', 'batteryPercentageRemaining', 1, 3600, null, value => {
+//		zclNode.endpoints[1].clusters.powerConfiguration.on('attr.batteryPercentageRemaining', (value) => {
 //			const parsedValue = Math.round(value / 2);
-//			this.log('genPowerCfg - batteryPercentageRemaining: ', value, parsedValue);
+//			this.log('powerConfiguration - batteryPercentageRemaining: ', value, parsedValue);
 //			this.setCapabilityValue('measure_battery', parsedValue);
-//		}, 0);
-		this.registerAttrReportListener('genPowerCfg', 'batteryVoltage', 300, 3600, null, value => {
+//		});
+		zclNode.endpoints[1].clusters.powerConfiguration.on('attr.batteryVoltage', (value) => {
 			if ( Math.round((value - 23) / (30 - 23) * 100) > 100 ) {
-				this.log('genPowerCfg - batteryVoltage: ', value, Math.round(100));
+				this.log('powerConfiguration - batteryVoltage: ', value, Math.round(100));
 				this.setCapabilityValue('measure_battery', Math.round(100));
 			} else {
-				this.log('genPowerCfg - batteryVoltage: ', value, Math.round((value - 23) / (30 - 23) * 100));
+				this.log('powerConfiguration - batteryVoltage: ', value, Math.round((value - 23) / (30 - 23) * 100));
 				this.setCapabilityValue('measure_battery', Math.round((value - 23) / (30 - 23) * 100));
 			}
-		}, 0);
+		});
 	}
 
 	// local settings changed
@@ -220,17 +240,16 @@ class Bitron_902010_32 extends ZigBeeDevice {
 		if (changedKeysArr.includes('temperature_Calibration')) {
 			this.log('temperature_Calibration: ', newSettingsObj.temperature_Calibration);
 			callback(null, true);
-			this.node.endpoints[0].clusters.hvacThermostat.write('localTemperatureCalibration', newSettingsObj.temperature_Calibration)
-				.then(result => {
-					this.log('localTemperatureCalibration: ', result);
-				})
-				.catch(err => {
-					this.log('could not write localTemperatureCalibration');
-					this.log(err);
-				});
+			try {
+				var result = await zclNode.endpoints[1].clusters.thermostat.write('localTemperatureCalibration', newSettingsObj.temperature_Calibration);
+				this.log('localTemperatureCalibration: ', result);
+			} catch(err) {
+				this.log('could not write localTemperatureCalibration');
+				this.log(err);
+			}
 		}
 
-		//ctrlSeqeOfOper changed
+		//controlSequenceOfOperation changed
 		if (changedKeysArr.includes('heatOnly_enabled')) {
 			this.log('heatOnly_enabled: ', newSettingsObj.heatOnly_enabled);
 
@@ -239,35 +258,33 @@ class Bitron_902010_32 extends ZigBeeDevice {
 				value = 2;
 			}
 
-			this.node.endpoints[0].clusters.hvacThermostat.write('ctrlSeqeOfOper', value)
-				.then(result => {
-					this.log('ctrlSeqeOfOper: ', result);
-					if(newSettingsObj.heatOnly_enabled){
-						this.node.endpoints[0].clusters.hvacThermostat.write('systemMode', 4)
-							.then(result => {
-								this.log('systemMode: ', result);
-								this.node.endpoints[0].clusters.hvacThermostat.write('occupiedHeatingSetpoint',
-									Math.round(occupiedHeatingSetpointVar * 1000 / 10))
-									.then(res => {
-										this.log('write occupiedHeatingSetpoint: ', res);
-										callback(null, true);
-									})
-									.catch(err => {
-										this.error('Error write occupiedHeatingSetpoint: ', err);
-									});
-							})
-							.catch(err => {
-								this.log('could not write systemMode', err);
-								callback(err, false);
-							});
-					} else {
-						callback(null, true);
+			try {
+				var result = await zclNode.endpoints[1].clusters.thermostat.write('controlSequenceOfOperation', value)
+				
+				this.log('controlSequenceOfOperation: ', result);
+				if(newSettingsObj.heatOnly_enabled){
+					try {
+						result = await zclNode.endpoints[1].clusters.thermostat.write('systemMode', 4);
+
+						this.log('systemMode: ', result);
+						try {
+							result = await zclNode.endpoints[1].clusters.thermostat.write('occupiedHeatingSetpoint',Math.round(occupiedHeatingSetpointVar * 1000 / 10));
+							this.log('write occupiedHeatingSetpoint: ', result);
+							callback(null, true);
+						} catch(err) {
+							this.error('Error write occupiedHeatingSetpoint: ', err);
+						}
+					} catch(err) {
+						this.log('could not write systemMode', err);
+						callback(err, false);
 					}
-				})
-				.catch(err => {
-					this.log('could not write ctrlSeqeOfOper', err);
-					callback(err, false);
-				});
+				} else {
+					callback(null, true);
+				}
+			} catch(err) {
+				this.log('could not write controlSequenceOfOperation', err);
+				callback(err, false);
+			}
 		}
 
 		//ctrlSeqeOfOper changed

@@ -1,8 +1,8 @@
 {
   "id": "de.mhaid.bitron",
-  "sdk": 2,
-  "version": "2.1.0",
-  "compatibility": ">=1.5.6",
+  "sdk": 3,
+  "version": "3.0.0",
+  "compatibility": ">=5.0.0",
   "brandColor": "#004785",
   "name": {
     "en": "Bitron",
@@ -97,6 +97,13 @@
         "productId": "902010/28",
         "deviceId": 9,
         "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              6,
+            ],
+          }
+        },
         "learnmode": {
           "instruction": {
             "en": "Press on/off button until red led flashes.",
@@ -149,6 +156,14 @@
         "productId": "902010/32",
         "deviceId": 769,
         "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              1,
+              513,
+            ]
+          }
+        },
         "learnmode": {
           "instruction": {
             "en": "If the device is not part of a ZigBee network (device not joined), press any of the buttons for at least 1 second to start the join process.\n\nIf no open ZigBee network is found, the termostat will return to the unjoined state (“no NET” message on the LCD-display).\n\nPlease read the user manual for additional information.",
