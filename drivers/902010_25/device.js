@@ -9,10 +9,10 @@ class Bitron_902010_25 extends ZigBeeDevice {
 	async onMeshInit() {
 
 		// enable debugging
-		this.enableDebug();
+		// this.enableDebug();
 
 		// print the node's info to the console
-		this.printNode();
+		// this.printNode();
 
 		// capabilities
 		// on/off
@@ -23,7 +23,8 @@ class Bitron_902010_25 extends ZigBeeDevice {
 				},
 			});
 		}
-		
+
+		// capabilities
 		// measure_power
 		if (this.hasCapability('measure_power')) {
 			this.registerCapability('measure_power', 'seMetering', {
@@ -35,43 +36,10 @@ class Bitron_902010_25 extends ZigBeeDevice {
 				report: 'instantaneousDemand',
 				getOpts: {
 					getOnStart: true,
-					pollInterval: 1000,
+					pollInterval: 10000,
 				},
 			});
 		}
-		
-		// meter_power
-		if (this.hasCapability('meter_power')) {
-			this.registerCapability('meter_power', 'seMetering', {
-				get: 'currentSummDelivered',
-				reportParser(value) {
-					this.log('value: ', value);
-					return Buffer.from(value).readUIntBE(0, 2) / 1000;
-				},
-				report: 'currentSummDelivered',
-				getOpts: {
-					getOnStart: true,
-					pollInterval: 1000,
-				},
-
-			});
-		}
-
-		// meter_received
-		/*if (this.hasCapability('meter_received')) {
-			this.registerCapability('meter_received', 'seMetering', {
-				get: 'currentSummReceived',
-				reportParser(value) {
-					this.log('value: ', value);
-					return Buffer.from(value).readUIntBE(0, 2) / 1000;
-				},
-				report: 'currentSummReceived',
-				getOpts: {
-					getOnStart: true,
-					pollInterval: 1000,
-				},
-			});
-		}*/
 
 		// reportlisteners
 		// Report is send if status is changed or after 5 min
