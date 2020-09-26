@@ -60,7 +60,7 @@
 			"id": "902010_25",
 			"class": "socket",
 			"capabilities": [
-				"onoff", "measure_power", "meter_power"
+				"onoff", "measure_power"
 			],
 			"name": {
 				"nl":"Smart Plug 902010/25",
