@@ -70,6 +70,59 @@
   "support": "mailto:mhaid2016@outlook.com",
   "capabilities": {},
   "drivers": [
+  	{
+      "id": "902010_25",
+      "class": "socket",
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power"
+      ],
+      "name": {
+        "en": "Smart Plug 902010/25",
+        "nl": "Smart Plug 902010/25",
+        "de": "Smart Plug 902010/25"
+      },
+      "images": {
+        "large": "/drivers/902010_25/assets/images/large.png",
+        "small": "/drivers/902010_25/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/25",
+        "deviceId": 81,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
     {
       "id": "902010_28",
       "class": "socket",

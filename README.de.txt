@@ -1,8 +1,10 @@
 Unterstützte Geräte:
+- Intelligenter Stecker 902010_25 (AV2010/25)
 - Intelligenter Stecker 902010_28 (AV2010/28)
 - Wandthermostat mit Relais 902010_32 (AV 2010/32)
 
 Manuell:
+- http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-verbrauchsdatenerfassung/
 - http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-schaltfunktion/
 - http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/funkthermostat/
 

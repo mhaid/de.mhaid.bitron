@@ -1,8 +1,10 @@
 Ondersteunde apparaten:
+- Slimme stekker 902010_25 (AV2010/25)
 - Slimme stekker 902010_28 (AV2010/28)
 - Wandthermostaat met Relais 902010_32 (AV 2010/32)
 
 Handleiding:
+- http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-verbrauchsdatenerfassung/
 - http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-schaltfunktion/
 - http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/funkthermostat/
 
