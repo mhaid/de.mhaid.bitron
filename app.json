@@ -71,6 +71,62 @@
   "capabilities": {},
   "drivers": [
   	{
+      "id": "902010_24",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_smoke",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "name": {
+        "en": "Smart Plug 902010/24",
+        "nl": "Smart Plug 902010/24",
+        "de": "Smart Plug 902010/24"
+      },
+      "images": {
+        "large": "/drivers/902010_24/assets/images/large.png",
+        "small": "/drivers/902010_24/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/24",
+        "deviceId": 81,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
+    {
       "id": "902010_25",
       "class": "socket",
       "capabilities": [
