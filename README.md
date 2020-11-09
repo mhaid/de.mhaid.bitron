@@ -4,16 +4,18 @@ Adds support for Bitron ZigBee devices.
 
 
 Supported devices:
+- Optical smoke detector 902010_24 (AV2010/24)
 - Smart Plug 902010_25 (AV2010/25)
 - Smart Plug 902010_28 (AV2010/28)
 - Wall Thermostat with Relais 902010_32 (AV 2010/32)
 
 
-Manual:
+Manuals:
 
-http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-verbrauchsdatenerfassung/
-http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-schaltfunktion/
-http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/funkthermostat/
+https://bv.smabit.eu/index.php/smart-home-produkte/optischer-rauchmelder/
+http://bv.smabit.eu/index.php/smart-home-produkte/smart-plug-mit-verbrauchsdatenerfassung/
+http://bv.smabit.eu/index.php/smart-home-produkte/smart-plug-mit-schaltfunktion/
+http://bv.smabit.eu/index.php/smart-home-produkte/funkthermostat/
 
 
 Comments:
