@@ -1,7 +1,7 @@
 {
   "id": "de.mhaid.bitron",
   "sdk": 3,
-  "version": "3.0.0",
+  "version": "3.0.2",
   "compatibility": ">=5.0.0",
   "brandColor": "#004785",
   "name": {
@@ -10,9 +10,9 @@
     "de": "Bitron"
   },
   "description": {
-    "en": "Adds support for Bitron devices.",
-    "nl": "Voegt ondersteuning voor Bitron-apparaten toe.",
-    "de": "Fügt Unterstützung für Bitron Geräte hinzu."
+    "en": "We want your safety, not your data.",
+    "nl": "We want your safety, not your data.",
+    "de": "We want your safety, not your data."
   },
   "category": [
     "climate",
@@ -21,18 +21,25 @@
   "tags": {
     "en": [
       "Bitron",
+      "SMaBiT",
       "thermostat",
-      "smart plug"
+      "smart plug",
+      "smoke detector"
     ],
     "nl": [
       "Bitron",
+      "SMaBiT",
       "thermostaat",
-      "smart plug"
+      "smart plug",
+      "rookmelder"
     ],
     "de": [
       "Bitron",
+      "SMaBiT",
       "Thermostat",
-      "Smart Plug"
+      "Smart Plug",
+      "Intelligente Steckdose",
+      "Rauchmelder"
     ]
   },
   "images": {
@@ -70,7 +77,7 @@
   "support": "mailto:mhaid2016@outlook.com",
   "capabilities": {},
   "drivers": [
-  	{
+    {
       "id": "902010_24",
       "class": "sensor",
       "capabilities": [
@@ -85,9 +92,9 @@
         ]
       },
       "name": {
-        "en": "Smart Plug 902010/24",
-        "nl": "Smart Plug 902010/24",
-        "de": "Smart Plug 902010/24"
+        "en": "Optical Smoke Detector 902010/24",
+        "nl": "Optical Smoke Detector 902010/24",
+        "de": "Optical Smoke Detector 902010/24"
       },
       "images": {
         "large": "/drivers/902010_24/assets/images/large.png",
@@ -103,7 +110,7 @@
           "Bitron Video"
         ],
         "productId": "902010/24",
-        "deviceId": 81,
+        "deviceId": 1026,
         "profileId": 260,
         "endpoints": {
           "1": {
