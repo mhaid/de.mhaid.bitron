@@ -1,7 +1,7 @@
 {
   "id": "de.mhaid.bitron",
   "sdk": 3,
-  "version": "3.0.2",
+  "version": "3.0.3",
   "compatibility": ">=5.0.0",
   "brandColor": "#004785",
   "name": {
@@ -24,14 +24,18 @@
       "SMaBiT",
       "thermostat",
       "smart plug",
-      "smoke detector"
+      "smoke detector",
+      "magnetic contact",
+      "movement detector" 
     ],
     "nl": [
       "Bitron",
       "SMaBiT",
       "thermostaat",
       "smart plug",
-      "rookmelder"
+      "rookmelder",
+      "deurcontact",
+      "bewegings melder"
     ],
     "de": [
       "Bitron",
@@ -39,7 +43,9 @@
       "Thermostat",
       "Smart Plug",
       "Intelligente Steckdose",
-      "Rauchmelder"
+      "Rauchmelder",
+      "Turkontakt",
+      "Bewegungssensor"
     ]
   },
   "images": {
@@ -77,6 +83,114 @@
   "support": "mailto:mhaid2016@outlook.com",
   "capabilities": {},
   "drivers": [
+    {
+      "id": "902010_22",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "name": {
+        "en": "Movement Sensor 902010/22",
+        "nl": "Bewegings Sensor 902010/22",
+        "de": "Bewegungssensor 902010/22"
+      },
+      "images": {
+        "large": "/drivers/902010_22/assets/images/large.png",
+        "small": "/drivers/902010_22/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/22",
+        "deviceId": 1026,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_21",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "name": {
+        "en": "Magnetic Door Contact 902010/21",
+        "nl": "Magnetisch Deur Contact 902010/21",
+        "de": "Magnetisches Tur Kontakt 902010/21"
+      },
+      "images": {
+        "large": "/drivers/902010_21/assets/images/large.png",
+        "small": "/drivers/902010_21/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/21A",
+        "deviceId": 1026,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
     {
       "id": "902010_24",
       "class": "sensor",
