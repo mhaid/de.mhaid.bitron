@@ -40,5 +40,8 @@
   },
   "3.0.2": {
     "en": "Fixed Icon and images"
+  },
+  "3.0.3": {
+    "en": "Added support for AV2010/21 & AV2010/22"
   }
 }
