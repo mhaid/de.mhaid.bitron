@@ -44,7 +44,7 @@
       "Smart Plug",
       "Intelligente Steckdose",
       "Rauchmelder",
-      "Turkontakt",
+      "Türkontakt",
       "Bewegungssensor"
     ]
   },
@@ -152,7 +152,7 @@
       "name": {
         "en": "Magnetic Door Contact 902010/21",
         "nl": "Magnetisch Deur Contact 902010/21",
-        "de": "Magnetisches Tur Kontakt 902010/21"
+        "de": "Magnetischer Türkontakt 902010/21"
       },
       "images": {
         "large": "/drivers/902010_21/assets/images/large.png",
@@ -208,7 +208,7 @@
       "name": {
         "en": "Optical Smoke Detector 902010/24",
         "nl": "Optical Smoke Detector 902010/24",
-        "de": "Optical Smoke Detector 902010/24"
+        "de": "Optischer Rauchmelder 902010/24"
       },
       "images": {
         "large": "/drivers/902010_24/assets/images/large.png",
