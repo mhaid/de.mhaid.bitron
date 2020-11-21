@@ -43,5 +43,8 @@
   },
   "3.0.3": {
     "en": "Added support for AV2010/21 & AV2010/22"
+  },
+  "3.0.4": {
+    "en": "Improved icons"
   }
 }

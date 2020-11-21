@@ -1,7 +1,7 @@
 {
   "id": "de.mhaid.bitron",
   "sdk": 3,
-  "version": "3.0.3",
+  "version": "3.0.4",
   "compatibility": ">=5.0.0",
   "brandColor": "#004785",
   "name": {
@@ -26,7 +26,7 @@
       "smart plug",
       "smoke detector",
       "magnetic contact",
-      "movement detector" 
+      "movement detector"
     ],
     "nl": [
       "Bitron",
