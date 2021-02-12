@@ -1,7 +1,7 @@
 {
   "id": "de.mhaid.bitron",
   "sdk": 3,
-  "version": "3.0.4",
+  "version": "3.0.5",
   "compatibility": ">=5.0.0",
   "brandColor": "#004785",
   "name": {

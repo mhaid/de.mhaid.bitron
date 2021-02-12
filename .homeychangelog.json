@@ -46,5 +46,8 @@
   },
   "3.0.4": {
     "en": "Improved icons"
+  },
+  "3.0.5": {
+    "en": "Adding support for Homey V5"
   }
 }
