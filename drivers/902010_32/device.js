@@ -29,12 +29,12 @@ class Bitron_902010_32 extends ZigBeeDevice {
 					if(localTempVar < value) {
 						//set mode heat
 						try {
-							var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',4);
+							var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 4});
 						
 							this.log('write systemMode: ', res);
 							//set occupiedHeatingSetpoint
 							try {
-								res = await zclNode.endpoints[1].clusters.thermostat.write('occupiedHeatingSetpoint',Math.round(value * 1000 / 10));
+								res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(value * 1000 / 10)});
 								this.log('write occupiedHeatingSetpoint: ', res);
 							} catch (err) {
 								this.error('Error write occupiedHeatingSetpoint: ', err);
@@ -45,12 +45,12 @@ class Bitron_902010_32 extends ZigBeeDevice {
 					} else if(localTempVar > value) {
 						//set mode cool
 						try {
-							var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',3);
+							var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 3});
 							this.log('write systemMode: ', res);
 
 							//set occupiedCoolingSetpoint
 							try {
-								res = await zclNode.endpoints[1].clusters.thermostat.write('occupiedCoolingSetpoint',Math.round(value * 1000 / 10));
+								res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedCoolingSetpoint: Math.round(value * 1000 / 10)});
 								this.log('write occupiedCoolingSetpoint: ', res);
 							} catch (err) {
 								this.error('Error write occupiedCoolingSetpoint: ', err);
@@ -61,7 +61,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 					} else {
 						//set mode off
 						try {
-							var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',0);
+							var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 0});
 							this.log('write systemMode: ', res);
 						} catch(err) {
 							this.error('Error write systemMode: ', err);
@@ -70,7 +70,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 				} else {
 					//set occupiedHeatingSetpoint
 					try {
-						var res = await zclNode.endpoints[1].clusters.thermostat.write('occupiedHeatingSetpoint',Math.round(value * 1000 / 10));
+						var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(value * 1000 / 10)});
 						this.log('write occupiedHeatingSetpoint: ', res);
 					} catch(err => {
 						this.error('Error write occupiedHeatingSetpoint: ', err);
@@ -111,7 +111,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 // 					else if(value == "heat") { sendValue = 4; } //Heating
 					
 //					try {
-// 						var res = await zclNode.endpoints[1].clusters.thermostat.write('systemMode',sendValue);
+// 						var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: sendValue});
 // 						this.log('write systemMode: ', res);
 // 					} catch(err) {
 // 						this.error('Error write systemMode: ', err);
@@ -241,7 +241,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 			this.log('temperature_Calibration: ', newSettingsObj.temperature_Calibration);
 			callback(null, true);
 			try {
-				var result = await zclNode.endpoints[1].clusters.thermostat.write('localTemperatureCalibration', newSettingsObj.temperature_Calibration);
+				var result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({localTemperatureCalibration: newSettingsObj.temperature_Calibration});
 				this.log('localTemperatureCalibration: ', result);
 			} catch(err) {
 				this.log('could not write localTemperatureCalibration');
@@ -259,16 +259,16 @@ class Bitron_902010_32 extends ZigBeeDevice {
 			}
 
 			try {
-				var result = await zclNode.endpoints[1].clusters.thermostat.write('controlSequenceOfOperation', value)
+				var result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({controlSequenceOfOperation: value})
 				
 				this.log('controlSequenceOfOperation: ', result);
 				if(newSettingsObj.heatOnly_enabled){
 					try {
-						result = await zclNode.endpoints[1].clusters.thermostat.write('systemMode', 4);
+						result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 4});
 
 						this.log('systemMode: ', result);
 						try {
-							result = await zclNode.endpoints[1].clusters.thermostat.write('occupiedHeatingSetpoint',Math.round(occupiedHeatingSetpointVar * 1000 / 10));
+							result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(occupiedHeatingSetpointVar * 1000 / 10)});
 							this.log('write occupiedHeatingSetpoint: ', result);
 							callback(null, true);
 						} catch(err) {
