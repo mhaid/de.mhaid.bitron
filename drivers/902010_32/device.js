@@ -22,7 +22,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 		// target temperature
 		this.registerCapability('target_temperature', CLUSTER.THERMOSTAT, {
 			set: 'occupiedHeatingSetpoint',
-			setParser(value) {
+			async setParser(value) {
 
 				var settings = this.getSettings();
 				if(settings.heatOnly_enabled == false) {
@@ -104,7 +104,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 // 		if (this.hasCapability('thermostat_mode')) {
 //			this.registerCapability('thermostat_mode', CLUSTER.THERMOSTAT, {
 //				set: 'systemMode',
-// 				setParser(value) {
+// 				async setParser(value) {
 // 					var sendValue = 4;
 // 					if(value == "off") { sendValue = 0; } //OFF
 // 					else if(value == "cool") { sendValue = 3; } //Cooling
@@ -230,7 +230,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 	}
 
 	// local settings changed
-	onSettings(oldSettingsObj, newSettingsObj, changedKeysArr, callback) {
+	async onSettings(oldSettingsObj, newSettingsObj, changedKeysArr, callback) {
 		this.log(changedKeysArr);
 		this.log('newSettingsObj', newSettingsObj);
 		this.log('oldSettingsObj', oldSettingsObj);
