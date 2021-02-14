@@ -1,7 +1,7 @@
 {
   "id": "de.mhaid.bitron",
   "sdk": 3,
-  "version": "3.0.5",
+  "version": "3.0.6",
   "compatibility": ">=5.0.0",
   "brandColor": "#004785",
   "name": {
@@ -81,62 +81,7 @@
   },
   "source": "https://github.com/mhaid/de.mhaid.bitron/",
   "support": "mailto:mhaid2016@outlook.com",
-  "capabilities": {},
   "drivers": [
-    {
-      "id": "902010_22",
-      "class": "sensor",
-      "capabilities": [
-        "alarm_motion",
-        "alarm_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR123A"
-        ]
-      },
-      "name": {
-        "en": "Movement Sensor 902010/22",
-        "nl": "Bewegings Sensor 902010/22",
-        "de": "Bewegungssensor 902010/22"
-      },
-      "images": {
-        "large": "/drivers/902010_22/assets/images/large.png",
-        "small": "/drivers/902010_22/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "Bitron Home",
-          "Bitron Video"
-        ],
-        "manufacturerID": [
-          "Bitron Home",
-          "Bitron Video"
-        ],
-        "productId": "902010/22",
-        "deviceId": 1026,
-        "profileId": 260,
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              1280
-            ],
-            "bindings": [
-              1280
-            ]
-          }
-        },
-        "learnmode": {
-          "instruction": {
-            "en": "Press on/off button until red led flashes.",
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
-            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
-          }
-        }
-      }
-    },
     {
       "id": "902010_21",
       "class": "sensor",
@@ -168,6 +113,60 @@
           "Bitron Video"
         ],
         "productId": "902010/21A",
+        "deviceId": 1026,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_22",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "name": {
+        "en": "Movement Sensor 902010/22",
+        "nl": "Bewegings Sensor 902010/22",
+        "de": "Bewegungssensor 902010/22"
+      },
+      "images": {
+        "large": "/drivers/902010_22/assets/images/large.png",
+        "small": "/drivers/902010_22/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/22",
         "deviceId": 1026,
         "profileId": 260,
         "endpoints": {
@@ -389,10 +388,7 @@
       },
       "zigbee": {
         "manufacturerName": "Bitron Home",
-        "manufacturerID": "Bitron Home",
         "productId": "902010/32",
-        "deviceId": 769,
-        "profileId": 260,
         "endpoints": {
           "1": {
             "clusters": [
@@ -452,36 +448,7 @@
           },
           "value": true
         }
-      ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature"
-            ],
-            "options": {
-              "showTitle": true
-            }
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
-      }
+      ]
     }
   ]
 }

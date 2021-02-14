@@ -10,7 +10,7 @@ var occupiedHeatingSetpointVar = 2100;
 class Bitron_902010_32 extends ZigBeeDevice {
 
 	// this method is called when the device is inited and values are changed
-	async onNoteInit({ zclNode }) {
+	async onNodeInit({ zclNode }) {
 
 		// enable debugging
 		this.enableDebug();
@@ -72,7 +72,7 @@ class Bitron_902010_32 extends ZigBeeDevice {
 					try {
 						var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(value * 1000 / 10)});
 						this.log('write occupiedHeatingSetpoint: ', res);
-					} catch(err => {
+					} catch(err) {
 						this.error('Error write occupiedHeatingSetpoint: ', err);
 					}
 				}
