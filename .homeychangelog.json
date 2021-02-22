@@ -55,5 +55,8 @@
   },
   "3.0.7": {
     "en": "Added support for Homey V5 + Bugfixes"
+  },
+  "3.0.8": {
+    "en": "Added support for Homey V5 + Bugfixes"
   }
 }
