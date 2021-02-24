@@ -4,14 +4,22 @@ Adds support for Bitron ZigBee devices.
 
 
 Supported devices:
+- Magnetic door contact  902010_21A (AV2010/21)
+- Movement sensor 902010_22 (AV2010/22)
+- Optical smoke detector 902010_24 (AV2010/24)
+- Smart Plug 902010_25 (AV2010/25)
 - Smart Plug 902010_28 (AV2010/28)
 - Wall Thermostat with Relais 902010_32 (AV 2010/32)
 
 
-Manual:
+Manuals:
 
-http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/smart-plug-mit-schaltfunktion/
-http://bvsite.smabit.eu/index.php/produkte/smart-home-produkte/funkthermostat/
+https://bv.smabit.eu/index.php/smart-home-produkte/kompakter-magnetkontakt/
+https://bv.smabit.eu/index.php/smart-home-produkte/infrarot-bewegungsmelder/
+https://bv.smabit.eu/index.php/smart-home-produkte/optischer-rauchmelder/
+http://bv.smabit.eu/index.php/smart-home-produkte/smart-plug-mit-verbrauchsdatenerfassung/
+http://bv.smabit.eu/index.php/smart-home-produkte/smart-plug-mit-schaltfunktion/
+http://bv.smabit.eu/index.php/smart-home-produkte/funkthermostat/
 
 
 Comments:

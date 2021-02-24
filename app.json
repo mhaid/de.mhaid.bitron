@@ -1,37 +1,51 @@
 {
   "id": "de.mhaid.bitron",
-  "sdk": 2,
-  "version": "2.1.0",
-  "compatibility": ">=1.5.6",
+  "sdk": 3,
+  "version": "3.0.8",
+  "compatibility": ">=5.0.0",
+  "brandColor": "#004785",
   "name": {
-    "nl": "Bitron",
     "en": "Bitron",
+    "nl": "Bitron",
     "de": "Bitron"
   },
   "description": {
-    "nl": "Voegt ondersteuning voor Bitron-apparaten toe.",
-    "en": "Adds support for Bitron devices.",
-    "de": "Fügt Unterstützung für Bitron Geräte hinzu."
+    "en": "We want your safety, not your data.",
+    "nl": "We want your safety, not your data.",
+    "de": "We want your safety, not your data."
   },
   "category": [
     "climate",
     "tools"
   ],
   "tags": {
-    "nl": [
-      "Bitron",
-      "thermostaat",
-      "smart plug"
-    ],
     "en": [
       "Bitron",
+      "SMaBiT",
       "thermostat",
-      "smart plug"
+      "smart plug",
+      "smoke detector",
+      "magnetic contact",
+      "movement detector"
+    ],
+    "nl": [
+      "Bitron",
+      "SMaBiT",
+      "thermostaat",
+      "smart plug",
+      "rookmelder",
+      "deurcontact",
+      "bewegings melder"
     ],
     "de": [
       "Bitron",
+      "SMaBiT",
       "Thermostat",
-      "Smart Plug"
+      "Smart Plug",
+      "Intelligente Steckdose",
+      "Rauchmelder",
+      "Türkontakt",
+      "Bewegungssensor"
     ]
   },
   "images": {
@@ -67,8 +81,224 @@
   },
   "source": "https://github.com/mhaid/de.mhaid.bitron/",
   "support": "mailto:mhaid2016@outlook.com",
-  "capabilities": {},
   "drivers": [
+    {
+      "id": "902010_21",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "name": {
+        "en": "Magnetic Door Contact 902010/21",
+        "nl": "Magnetisch Deur Contact 902010/21",
+        "de": "Magnetischer Türkontakt 902010/21"
+      },
+      "images": {
+        "large": "/drivers/902010_21/assets/images/large.png",
+        "small": "/drivers/902010_21/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/21A",
+        "deviceId": 1026,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_22",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "name": {
+        "en": "Movement Sensor 902010/22",
+        "nl": "Bewegings Sensor 902010/22",
+        "de": "Bewegungssensor 902010/22"
+      },
+      "images": {
+        "large": "/drivers/902010_22/assets/images/large.png",
+        "small": "/drivers/902010_22/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/22",
+        "deviceId": 1026,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_24",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_smoke",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "name": {
+        "en": "Optical Smoke Detector 902010/24",
+        "nl": "Optical Smoke Detector 902010/24",
+        "de": "Optischer Rauchmelder 902010/24"
+      },
+      "images": {
+        "large": "/drivers/902010_24/assets/images/large.png",
+        "small": "/drivers/902010_24/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/24",
+        "deviceId": 1026,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_25",
+      "class": "socket",
+      "capabilities": [
+        "onoff",
+        "measure_power",
+        "meter_power"
+      ],
+      "name": {
+        "en": "Smart Plug 902010/25",
+        "nl": "Smart Plug 902010/25",
+        "de": "Smart Plug 902010/25"
+      },
+      "images": {
+        "large": "/drivers/902010_25/assets/images/large.png",
+        "small": "/drivers/902010_25/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "manufacturerID": [
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": "902010/25",
+        "deviceId": 81,
+        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              1794
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
+            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+          }
+        }
+      }
+    },
     {
       "id": "902010_28",
       "class": "socket",
@@ -76,9 +306,13 @@
         "onoff"
       ],
       "name": {
-        "nl": "Smart Plug 902010/28",
         "en": "Smart Plug 902010/28",
+        "nl": "Smart Plug 902010/28",
         "de": "Smart Plug 902010/28"
+      },
+      "images": {
+        "large": "/drivers/902010_28/assets/images/large.png",
+        "small": "/drivers/902010_28/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
@@ -92,17 +326,27 @@
         "productId": "902010/28",
         "deviceId": 9,
         "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              6
+            ]
+          }
+        },
         "learnmode": {
           "instruction": {
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
             "en": "Press on/off button until red led flashes.",
+            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
             "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
           }
         }
-      },
-      "images": {
-        "large": "/drivers/902010_28/assets/images/large.png",
-        "small": "/drivers/902010_28/assets/images/small.png"
       }
     },
     {
@@ -134,20 +378,36 @@
         }
       },
       "name": {
-        "nl": "Wandthermostaat 902010/32",
         "en": "Wall Thermostat 902010/32",
+        "nl": "Wandthermostaat 902010/32",
         "de": "Wandthermostat 902010/32"
+      },
+      "images": {
+        "large": "/drivers/902010_32/assets/images/large.png",
+        "small": "/drivers/902010_32/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": "Bitron Home",
-        "manufacturerID": "Bitron Home",
         "productId": "902010/32",
-        "deviceId": 769,
-        "profileId": 260,
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3,
+              4,
+              5,
+              513
+            ],
+            "bindings": [
+              513
+            ]
+          }
+        },
         "learnmode": {
           "instruction": {
-            "nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (“no NET” op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
             "en": "If the device is not part of a ZigBee network (device not joined), press any of the buttons for at least 1 second to start the join process.\n\nIf no open ZigBee network is found, the termostat will return to the unjoined state (“no NET” message on the LCD-display).\n\nPlease read the user manual for additional information.",
+            "nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (“no NET” op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
             "de": "Wenn das Gerät nicht Teil eines ZigBee-Netzwerks ist (Gerät nicht verbunden), drücken Sie mindestens 1 Sekunde lang eine beliebige Taste, um den Verbindungsvorgang zu starten.\n\nWenn kein offenes ZigBee-Netzwerk gefunden wird, kehrt der Termostat in den nicht verbundenen Zustand zurück (Meldung “no NET” auf dem LCD-Display).\n\nBitte lesen Sie das Benutzerhandbuch, um weitere Informationen zu erhalten."
           }
         }
@@ -157,13 +417,13 @@
           "id": "temperature_Calibration",
           "type": "number",
           "label": {
-            "nl": "Temperatuurkalibratie",
             "en": "Temperature Calibration",
+            "nl": "Temperatuurkalibratie",
             "de": "Temperaturkalibierung"
           },
           "hint": {
-            "nl": "Specificeert een lineaire offset naar de waarde van de temperatuursensor.\n\nHet resultaat is dat het apparaat alle gemeten sensorwaarden interpreteert als gemeten sensorwaarde + offset.",
             "en": "Specifies a linear offset to the temperature sensor's value.\n\nIt will result in the device interpreting all measured sensor values as measured sensor value + offset.",
+            "nl": "Specificeert een lineaire offset naar de waarde van de temperatuursensor.\n\nHet resultaat is dat het apparaat alle gemeten sensorwaarden interpreteert als gemeten sensorwaarde + offset.",
             "de": "Gibt einen linearen Versatz zum Wert des Temperatursensors an.\n\nDas Gerät interpretiert alle gemessenen Sensorwerte als gemessenen Sensorwert + Versatz."
           },
           "value": 0,
@@ -177,51 +437,18 @@
           "id": "heatOnly_enabled",
           "type": "checkbox",
           "label": {
-            "nl": "Alleen de verwarmingsmodus",
             "en": "Only heating mode",
+            "nl": "Alleen de verwarmingsmodus",
             "de": "Nur Heizmodus"
           },
           "hint": {
-            "nl": "Wanneer het apparaat actief is, kan het alleen verwarmen.\n\nAlleen deactiveren als er een koelsysteem op de thermostaat is aangesloten!",
             "en": "When active, the appliance can only heat.\n\nOnly deactivate if a cooling system is connected to the thermostat!",
+            "nl": "Wanneer het apparaat actief is, kan het alleen verwarmen.\n\nAlleen deactiveren als er een koelsysteem op de thermostaat is aangesloten!",
             "de": "Wenn aktiv, kann das Gerät nur heizen.\n\nNur deaktivieren, wenn eine Kühlung am Thermostat angeschlossen wurde!"
           },
           "value": true
         }
-      ],
-      "mobile": {
-        "components": [
-          {
-            "id": "icon",
-            "capabilities": []
-          },
-          {
-            "id": "battery",
-            "capabilities": [
-              "measure_battery"
-            ]
-          },
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_temperature"
-            ],
-            "options": {
-              "showTitle": true
-            }
-          },
-          {
-            "id": "thermostat",
-            "capabilities": [
-              "target_temperature"
-            ]
-          }
-        ]
-      },
-      "images": {
-        "large": "/drivers/902010_32/assets/images/large.png",
-        "small": "/drivers/902010_32/assets/images/small.png"
-      }
+      ]
     }
   ]
 }
