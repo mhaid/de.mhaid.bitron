@@ -1,296 +1,313 @@
 'use strict';
 
-const { ZigBeeDevice } = require('homey-zigbeedriver');
-const { CLUSTER } = require('zigbee-clusters');
+const ThermostatUserInterfaceConfigurationCluster = require('../../lib/ThermostatUserInterfaceConfigurationCluster');
 
-var localTempVar = 2100;
-var occupiedHeatingSetpointVar = 2100;
+const { ZigBeeDevice } = require('homey-zigbeedriver');
+const { Cluster,CLUSTER } = require('zigbee-clusters');
+Cluster.addCluster(ThermostatUserInterfaceConfigurationCluster);
+
+var localTempVar = 21;
+var occupiedSetpoint = 21;
+var systemMode = 'heat';
+
+var batteryVoltageMinThreshold = 0;
+var batteryVoltageMax = 32;
+var batteryVoltageCurrent = 0;
+
 
 class Bitron_902010_32 extends ZigBeeDevice {
 
 	// this method is called when the device is inited and values are changed
 	async onNodeInit({ zclNode }) {
 
-		// enable debugging
-		this.enableDebug();
-
 		// print the node's info to the console
 		this.printNode();
 
 		// capabilities
-		// target temperature
-		this.registerCapability('target_temperature', CLUSTER.THERMOSTAT, {
-			set: 'occupiedHeatingSetpoint',
-			async setParser(value) {
+		if(this.hasCapability('thermostat_mode')) {
+			await this.removeCapability('thermostat_mode');
+		}
+		if(!this.hasCapability('thermostat_mode_smabit')) {
+			await this.addCapability('thermostat_mode_smabit');
+		}
+		await this.setCapabilityValue('thermostat_mode_smabit','auto');
+		
 
-				var settings = this.getSettings();
-				if(settings.heatOnly_enabled == false) {
-					if(localTempVar < value) {
-						//set mode heat
-						try {
-							var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 4});
-						
-							this.log('write systemMode: ', res);
-							//set occupiedHeatingSetpoint
-							try {
-								res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(value * 1000 / 10)});
-								this.log('write occupiedHeatingSetpoint: ', res);
-							} catch (err) {
-								this.error('Error write occupiedHeatingSetpoint: ', err);
-							}
-						} catch (err) {
-							this.error('Error write systemMode: ', err);
-						}
-					} else if(localTempVar > value) {
-						//set mode cool
-						try {
-							var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 3});
-							this.log('write systemMode: ', res);
+		// local target temperature
+		this.registerCapabilityListener('target_temperature', async ( value, opts ) => {
 
-							//set occupiedCoolingSetpoint
-							try {
-								res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedCoolingSetpoint: Math.round(value * 1000 / 10)});
-								this.log('write occupiedCoolingSetpoint: ', res);
-							} catch (err) {
-								this.error('Error write occupiedCoolingSetpoint: ', err);
-							}
-						} catch(err) {
-							this.error('Error write systemMode: ', err);
-						}
-					} else {
-						//set mode off
-						try {
-							var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 0});
-							this.log('write systemMode: ', res);
-						} catch(err) {
-							this.error('Error write systemMode: ', err);
-						}
-					}
-				} else {
-					//set occupiedHeatingSetpoint
-					try {
-						var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(value * 1000 / 10)});
-						this.log('write occupiedHeatingSetpoint: ', res);
-					} catch(err) {
-						this.error('Error write occupiedHeatingSetpoint: ', err);
-					}
-				}
-				return null;
-			},
-			get: 'occupiedHeatingSetpoint',
-			reportParser(value) {
-				return Math.round((value / 100) * 10) / 10;
-			},
-			report: 'occupiedHeatingSetpoint',
-			getOpts: {
-				getOnStart: true,
-				getOnOnline: true,
-			},
+			// read occupiedSetpoint
+			var tempVal = await zclNode.endpoints[1].clusters.thermostat.readAttributes((systemMode == 'heat' ? 'occupiedHeatingSetpoint':'occupiedCoolingSetpoint'));
+			tempVal = (systemMode == 'heat' ? tempVal.occupiedHeatingSetpoint : tempVal.occupiedCoolingSetpoint);
+			this.log('INFO: read occupiedSetpoint: ', tempVal);
+
+			//set occupiedSetpoint
+			const parsedValue = (value*10)-(tempVal/10);
+			try {
+				await zclNode.endpoints[1].clusters.thermostat.setSetpoint({mode:'both',amount:parsedValue});
+				this.log('INFO: write occupiedSetpoint',parsedValue);
+				occupiedSetpoint = Math.round(tempVal / 10) / 10;
+			} catch(err) {
+				this.log('ERR: write occupiedSetpoint:', err);
+				this.error('Error write occupiedSetpoint');
+			}
+
+			return Promise.resolve();
 		});
-		// local temperature
+
+		// capability: real temperature
 		this.registerCapability('measure_temperature', CLUSTER.THERMOSTAT, {
 			get: 'localTemperature',
-			reportParser(value) {
-				return Math.round((value / 100) * 10) / 10;
-			},
-			report: 'localTemperature',
 			getOpts: {
 				getOnStart: true,
 				getOnOnline: true,
 			},
+			report: 'localTemperature',
+			async reportParser(value) {
+				const parsedValue = Math.round(value / 10) / 10;
+				this.log('INFO: report localTemperature', value, parsedValue);
+				localTempVar = parsedValue;
+
+				return localTempVar;
+			},
+			reportOpts: {
+				configureAttributeReporting: {
+					minInterval: 1,
+					maxInterval: 600,
+					minChange: 10,
+				}
+			},
 		});
-		// thermostat mode
-// 		if (this.hasCapability('thermostat_mode')) {
-//			this.registerCapability('thermostat_mode', CLUSTER.THERMOSTAT, {
-//				set: 'systemMode',
-// 				async setParser(value) {
-// 					var sendValue = 4;
-// 					if(value == "off") { sendValue = 0; } //OFF
-// 					else if(value == "cool") { sendValue = 3; } //Cooling
-// 					else if(value == "heat") { sendValue = 4; } //Heating
-					
-//					try {
-// 						var res = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: sendValue});
-// 						this.log('write systemMode: ', res);
-// 					} catch(err) {
-// 						this.error('Error write systemMode: ', err);
-// 					}
-// 					return null;
-// 				},
-// 				get: 'systemMode',
-// 				reportParser(value) {
-// 					if(value == 0) { return "off"; } //OFF
-// 					else if(value == 3) { return "cool"; } //Cooling
-// 					else if(value == 4) { return "heat"; } //Heating
-// 					else { return "heat"; } //Default (Heating)
-// 				},
-// 				report: 'systemMode',
-// 				getOpts: {
-// 					getOnStart: true,
-// 					getOnOnline: true,
-// 				},
-// 			});
-// 		}
-		// battery
-//		if (this.hasCapability('measure_battery')) {
-//			this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
-//				get: 'batteryPercentageRemaining',
-//				reportParser(value) {
-//					return Math.round(value / 2);
-//				},
-//				report: 'batteryPercentageRemaining',
-//				getOpts: {
-//					getOnStart: true,
-//					getOnOnline: true,
-//				},
-//			});
-//		}
+
+		// capability: thermostat mode
+		this.registerCapabilityListener('thermostat_mode_smabit', async ( value, opts ) => {
+			return await this.updateSystemMode(value,'homey');
+		});
+
+		// capability: battery
 		if (this.hasCapability('measure_battery')) {
 			this.registerCapability('measure_battery', CLUSTER.POWER_CONFIGURATION, {
 				get: 'batteryVoltage',
-				reportParser(value) {
-					if ( Math.round((value - 23) / (30 - 23) * 100) > 100 ) {
-						return Math.round(100);
-					} else {
-						return Math.round((value - 23) / (30 - 23) * 100);
-					}
-				},
-				report: 'batteryVoltage',
 				getOpts: {
 					getOnStart: true,
 					getOnOnline: true,
 				},
+				report: 'batteryVoltage',
+				async reportParser(value) {
+					if(batteryVoltageMinThreshold == 0) {
+						const valueTreshold = await zclNode.endpoints[1].clusters.powerConfiguration.readAttributes('batteryVoltageMinThreshold');
+						console.log('INFO: report batteryVoltageMinThreshold', valueTreshold.batteryVoltageMinThreshold);
+						batteryVoltageMinThreshold = valueTreshold.batteryVoltageMinThreshold;
+					}
+
+					var parsedValue = Math.round((value - batteryVoltageMinThreshold) / (batteryVoltageMax - batteryVoltageMinThreshold) * 100);
+					parsedValue = (parsedValue > 100 ? 100 : parsedValue);
+					this.log('INFO: report batteryVoltage', value, parsedValue);
+					batteryVoltageCurrent = value;
+					return parsedValue;
+				},
+				reportOpts: {
+					configureAttributeReporting: {
+						minInterval: 0,
+						maxInterval: 3600,
+						minChange: 1,
+					}
+				},
 			});
 		}
 
-		// reportlisteners 
-		await this.configureAttributeReporting([
-			{
-				endpointId: 1,
-				cluster: CLUSTER.THERMOSTAT,
-				attributeName: 'occupiedHeatingSetpoint',
-				minInterval: 1,
-				maxInterval: 300,
-				minChange: 10,
-			},
-			{
-				endpointId: 1,
-				cluster: CLUSTER.THERMOSTAT,
-				attributeName: 'localTemperature',
-				minInterval: 1,
-				maxInterval: 300,
-				minChange: 10,
-			},
-			/*{
-				endpointId: 1,
-				cluster: CLUSTER.POWER_CONFIGURATION,
-				attributeName: 'batteryPercentageRemaining',
-				minInterval: 1,
-				maxInterval: 3600,
-			},*/
-			{
-				endpointId: 1,
-				cluster: CLUSTER.POWER_CONFIGURATION,
-				attributeName: 'batteryVoltage',
-				minInterval: 300,
-				maxInterval: 3600,
-			}
-		]);
 
-		// target temperature
-		zclNode.endpoints[1].clusters.thermostat.on('attr.occupiedHeatingSetpoint', (value) => {
-			const parsedValue = Math.round((value / 100) * 10) / 10;
-			this.log('thermostat - occupiedHeatingSetpoint: ', value, parsedValue);
-			occupiedHeatingSetpointVar = parsedValue;
-			this.setCapabilityValue('target_temperature', parsedValue);
-		});
-		// local temperature
-		zclNode.endpoints[1].clusters.thermostat.on('attr.localTemperature', (value) => {
-			const parsedValue = Math.round((value / 100) * 10) / 10;
-			this.log('thermostat - localTemperature: ', value, parsedValue);
-			localTempVar = parsedValue;
-			this.setCapabilityValue('measure_temperature', parsedValue);
-		});
-		// maesure battery
-//		zclNode.endpoints[1].clusters.powerConfiguration.on('attr.batteryPercentageRemaining', (value) => {
-//			const parsedValue = Math.round(value / 2);
-//			this.log('powerConfiguration - batteryPercentageRemaining: ', value, parsedValue);
-//			this.setCapabilityValue('measure_battery', parsedValue);
-//		});
-		zclNode.endpoints[1].clusters.powerConfiguration.on('attr.batteryVoltage', (value) => {
-			if ( Math.round((value - 23) / (30 - 23) * 100) > 100 ) {
-				this.log('powerConfiguration - batteryVoltage: ', value, Math.round(100));
-				this.setCapabilityValue('measure_battery', Math.round(100));
+
+
+		// attr. Reporting: occupiedHeatingSetpoint, occupiedCoolingSetpoint, systemMode
+		if(this.isFirstInit()) {
+			await this.configureAttributeReporting([
+				{
+					cluster: CLUSTER.THERMOSTAT,
+					attributeName: 'occupiedHeatingSetpoint',
+					minInterval: 0,
+					maxInterval: 360,
+					minChange: 1,
+				},
+				{
+					cluster: CLUSTER.THERMOSTAT,
+					attributeName: 'occupiedCoolingSetpoint',
+					minInterval: 0,
+					maxInterval: 360,
+					minChange: 1,
+				},
+				{
+					cluster: CLUSTER.THERMOSTAT,
+					attributeName: 'systemMode',
+					minInterval: 0,
+					maxInterval: 360,
+					minChange: 1,
+				},
+			]);
+		}
+
+		// attr. listener: occupiedHeatingSetpoint
+		zclNode.endpoints[1].clusters[CLUSTER.THERMOSTAT.NAME]
+			.on('attr.occupiedHeatingSetpoint', async (value) => {
+			
+			const parsedValue = Math.round(value / 10) / 10;
+			this.log('INFO: report occupiedHeatingSetpoint', value, parsedValue);
+
+			if(systemMode != 'cool') {
+				occupiedSetpoint = parsedValue;
+				this.setCapabilityValue('target_temperature',occupiedSetpoint);
+				this.log('INFO: report occupiedHeatingSetpoint used',systemMode);
 			} else {
-				this.log('powerConfiguration - batteryVoltage: ', value, Math.round((value - 23) / (30 - 23) * 100));
-				this.setCapabilityValue('measure_battery', Math.round((value - 23) / (30 - 23) * 100));
+				this.log('INFO: report occupiedHeatingSetpoint ignored',systemMode);
 			}
 		});
+
+		// attr. listener: occupiedCoolingSetpoint
+		zclNode.endpoints[1].clusters[CLUSTER.THERMOSTAT.NAME]
+			.on('attr.occupiedCoolingSetpoint', async (value) => {
+			
+			const parsedValue = Math.round(value / 10) / 10;
+			this.log('INFO: report occupiedCoolingSetpoint', value, parsedValue);
+
+			if(systemMode != 'heat') {
+				occupiedSetpoint = parsedValue;
+				this.setCapabilityValue('target_temperature',occupiedSetpoint);
+				this.log('INFO: report occupiedCoolingSetpoint used',systemMode);
+			} else {
+				this.log('INFO: report occupiedCoolingSetpoint ignored',systemMode);
+			}
+		});
+
+		// attr. listener: systemMode
+		zclNode.endpoints[1].clusters[CLUSTER.THERMOSTAT.NAME]
+			.on('attr.systemMode', async (value) => {
+
+			return await this.updateSystemMode(value,'device');
+		});	
 	}
+	
 
 	// local settings changed
-	async onSettings(oldSettingsObj, newSettingsObj, changedKeysArr, callback) {
-		this.log(changedKeysArr);
-		this.log('newSettingsObj', newSettingsObj);
-		this.log('oldSettingsObj', oldSettingsObj);
-		this.log('test: ', changedKeysArr.includes('temperature_Calibration'));
+	async onSettings({ oldSettings, newSettings, changedKeys }) {
+		this.log(changedKeys);
+		this.log('newSettings', newSettings);
+		this.log('oldSettings', oldSettings);
+
+		// batteryVoltageMax changed
+		if (changedKeys.includes('battery_voltage_max')) {
+			try {
+				if(newSettings.battery_voltage_max == null) {
+					batteryVoltageMax = 32;
+				}
+				batteryVoltageMax = newSettings.battery_voltage_max * 10 * 2;
+				this.log('INFO: batteryVoltageMax', batteryVoltageMax);
+
+				if(batteryVoltageMinThreshold != 0 && batteryVoltageCurrent != 0) {
+
+					var parsedValue = Math.round((batteryVoltageCurrent - batteryVoltageMinThreshold) / (batteryVoltageMax - batteryVoltageMinThreshold) * 100);
+					parsedValue = (parsedValue > 100 ? 100 : parsedValue);
+					this.setCapabilityValue('measure_battery',parsedValue);
+					this.log('INFO: report batteryVoltage', batteryVoltageCurrent, parsedValue);
+				}
+			} catch(err) {
+				this.log('ERR: could not write batteryVoltageMax',err);
+				throw new Error("ERR: setting batteryVoltageMax");
+			}
+		}
+
+		// tempDisplayMode changed
+		if (changedKeys.includes('temp_display_mode')) {
+			this.log('temp_display_mode:', newSettings.temp_display_mode);
+			try {
+				var displayMode = newSettings.temp_display_mode;
+				if(displayMode != "celsius" && displayMode != "fahrenheit") {
+					displayMode = "celsius";
+				}
+				var result = await this.zclNode.endpoints[1].clusters.thermostatUserInterfaceConfiguration.writeAttributes({temperatureDisplayMode: displayMode});
+				this.log('INFO: temperatureDisplayMode', displayMode);
+			} catch(err) {
+				this.log('ERR: could not write temperatureDisplayMode',err);
+				throw new Error("ERR: setting temperatureDisplayMode");
+			}
+		}
+
+		// keyboard_lockout changed
+		if (changedKeys.includes('keyboard_lockout')) {
+			this.log('keyboard_lockout:', newSettings.keyboard_lockout);
+			try {
+				var parsedValue = "no";
+				if(newSettings.keyboard_lockout) {
+					parsedValue = "level2";
+				}
+				var result = await this.zclNode.endpoints[1].clusters.thermostatUserInterfaceConfiguration.writeAttributes({keypadLockout: parsedValue});
+				this.log('INFO: keypadLockout', newSettings.keyboard_lockout);
+			} catch(err) {
+				this.log('ERR: could not write keypadLockout',err);
+				throw new Error("ERR: setting keypadLockout");
+			}
+		}
 
 		// localTemperatureCalibration changed
-		if (changedKeysArr.includes('temperature_Calibration')) {
-			this.log('temperature_Calibration: ', newSettingsObj.temperature_Calibration);
-			callback(null, true);
+		if (changedKeys.includes('temperature_Calibration')) {
+			this.log('temperature_Calibration:', newSettings.temperature_Calibration);
 			try {
-				var result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({localTemperatureCalibration: newSettingsObj.temperature_Calibration});
-				this.log('localTemperatureCalibration: ', result);
+				var result = await this.zclNode.endpoints[1].clusters.thermostat.writeAttributes({localTemperatureCalibration: newSettings.temperature_Calibration});
+				this.log('INFO: localTemperatureCalibration', newSettings.temperature_Calibration);
 			} catch(err) {
-				this.log('could not write localTemperatureCalibration');
-				this.log(err);
+				this.log('ERR: could not write localTemperatureCalibration',err);
+				throw new Error("ERR: setting localTemperatureCalibration");
 			}
 		}
 
 		//controlSequenceOfOperation changed
-		if (changedKeysArr.includes('heatOnly_enabled')) {
-			this.log('heatOnly_enabled: ', newSettingsObj.heatOnly_enabled);
-
-			var value = 4;
-			if(newSettingsObj.heatOnly_enabled == true){
-				value = 2;
+		if (changedKeys.includes('thermostat_mode')) {
+			this.log('INFO: thermostat_mode:', newSettings.thermostat_mode);
+			systemMode = newSettings.thermostat_mode;
+			
+			if(this.zclNode == null) {
+				throw new Error("ERR: Device not yet initialized");
 			}
 
 			try {
-				var result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({controlSequenceOfOperation: value})
-				
-				this.log('controlSequenceOfOperation: ', result);
-				if(newSettingsObj.heatOnly_enabled){
-					try {
-						result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: 4});
+				var result = await this.zclNode.endpoints[1].clusters.thermostat.writeAttributes({controlSequenceOfOperation: (systemMode == 'heat' ? 'heatingWithReheat' : 'coolingAndHeating4PipesWithReheat')});
+				this.log('INFO: write controlSequenceOfOperation',(systemMode == 'heat' ? 'heatingWithReheat' : 'coolingAndHeating4PipesWithReheat'), result);
 
-						this.log('systemMode: ', result);
-						try {
-							result = await zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: Math.round(occupiedHeatingSetpointVar * 1000 / 10)});
-							this.log('write occupiedHeatingSetpoint: ', result);
-							callback(null, true);
-						} catch(err) {
-							this.error('Error write occupiedHeatingSetpoint: ', err);
-						}
-					} catch(err) {
-						this.log('could not write systemMode', err);
-						callback(err, false);
-					}
+				await this.updateSystemMode(systemMode,'settings');
+
+				if(systemMode == 'heat') {
+					result = await this.zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedHeatingSetpoint: occupiedSetpoint * 100});
+					this.log('INFO: write occupiedHeatingSetpoint',occupiedSetpoint, occupiedSetpoint*100);	
 				} else {
-					callback(null, true);
+					result = await this.zclNode.endpoints[1].clusters.thermostat.writeAttributes({occupiedCoolingSetpoint: occupiedSetpoint * 100});
+					this.log('INFO: write occupiedCoolingSetpoint',occupiedSetpoint, occupiedSetpoint*100);	
 				}
 			} catch(err) {
-				this.log('could not write controlSequenceOfOperation', err);
-				callback(err, false);
+				this.log('ERR: write controlSequenceOfOperation', err);
+				throw new Error("ERR: setting controlSequenceOfOperation");
 			}
 		}
 
-		//ctrlSeqeOfOper changed
-//		if (changedKeysArr.includes('intelMode_enabled')) {
-//			this.log('intelMode_enabled: ', newSettingsObj.intelMode_enabled);
-//			callback(null, true);
-//		}
+		return true;
+	}
+
+	async updateSystemMode(value,emitter) {
+
+		if(value == 'auto') {
+			value = systemMode;
+		}
+
+		if(emitter != 'device') {
+			await this.zclNode.endpoints[1].clusters.thermostat.writeAttributes({systemMode: value});
+			this.log('INFO: write systemMode',value);
+		}
+
+		if(emitter != 'homey') {
+			this.setCapabilityValue('thermostat_mode_smabit',(value == 'off' ? 'off':'auto'));
+			this.log('INFO: write thermostat_mode_smabit',(value == 'off' ? 'off':'auto'));
+		}
+
+		systemMode = value;
+		return Promise.resolve();
 	}
 }
 

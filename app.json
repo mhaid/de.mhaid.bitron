@@ -1,23 +1,21 @@
 {
   "id": "de.mhaid.bitron",
   "sdk": 3,
-  "version": "3.0.8",
+  "version": "4.3.4",
   "compatibility": ">=5.0.0",
-  "brandColor": "#004785",
+  "brandColor": "#005a87",
   "name": {
-    "en": "Bitron",
-    "nl": "Bitron",
-    "de": "Bitron"
+    "en": "SMaBiT (Bitron Video)",
+    "nl": "SMaBiT (Bitron Video)",
+    "de": "SMaBiT (Bitron Video)"
   },
   "description": {
     "en": "We want your safety, not your data.",
     "nl": "We want your safety, not your data.",
-    "de": "We want your safety, not your data."
+    "de": "Wir möchten Ihre Sicherheit, nicht Ihre Daten.",
+    "es": "Queremos tu seguridad, no tus datos."
   },
-  "category": [
-    "climate",
-    "tools"
-  ],
+  "category": "security",
   "tags": {
     "en": [
       "Bitron",
@@ -49,13 +47,10 @@
     ]
   },
   "images": {
-    "large": "/assets/images/large.png",
-    "small": "/assets/images/small.png"
+    "xlarge": "/assets/images/xlarge.jpg",
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
   },
-  "permissions": [
-    "homey:manager:ledring",
-    "homey:manager:speech-output"
-  ],
   "author": {
     "email": "mhaid2016@outlook.com",
     "name": "Morris Haid"
@@ -80,64 +75,11 @@
     "url": "https://github.com/mhaid/de.mhaid.bitron/issues"
   },
   "source": "https://github.com/mhaid/de.mhaid.bitron/",
+  "homepage": "https://en.smabit.eu",
   "support": "mailto:mhaid2016@outlook.com",
   "drivers": [
     {
-      "id": "902010_21",
-      "class": "sensor",
-      "capabilities": [
-        "alarm_contact",
-        "alarm_battery"
-      ],
-      "energy": {
-        "batteries": [
-          "CR2"
-        ]
-      },
-      "name": {
-        "en": "Magnetic Door Contact 902010/21",
-        "nl": "Magnetisch Deur Contact 902010/21",
-        "de": "Magnetischer Türkontakt 902010/21"
-      },
-      "images": {
-        "large": "/drivers/902010_21/assets/images/large.png",
-        "small": "/drivers/902010_21/assets/images/small.png"
-      },
-      "zigbee": {
-        "manufacturerName": [
-          "Bitron Home",
-          "Bitron Video"
-        ],
-        "manufacturerID": [
-          "Bitron Home",
-          "Bitron Video"
-        ],
-        "productId": "902010/21A",
-        "deviceId": 1026,
-        "profileId": 260,
-        "endpoints": {
-          "1": {
-            "clusters": [
-              0,
-              3,
-              1280
-            ],
-            "bindings": [
-              1280
-            ]
-          }
-        },
-        "learnmode": {
-          "instruction": {
-            "en": "Press on/off button until red led flashes.",
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
-            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
-          }
-        }
-      }
-    },
-    {
-      "id": "902010_22",
+      "id": "902010_14",
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
@@ -149,26 +91,25 @@
         ]
       },
       "name": {
-        "en": "Movement Sensor 902010/22",
-        "nl": "Bewegings Sensor 902010/22",
-        "de": "Bewegungssensor 902010/22"
+        "en": "AV2010/14 Curtain motion sensor",
+        "nl": "AV2010/14 Gordijn bewegingsmelder",
+        "de": "AV2010/14 Vorhang Bewegungsmelder"
       },
       "images": {
-        "large": "/drivers/902010_22/assets/images/large.png",
-        "small": "/drivers/902010_22/assets/images/small.png"
+        "xlarge": "/drivers/902010_14/assets/images/xlarge.png",
+        "large": "/drivers/902010_14/assets/images/large.png",
+        "small": "/drivers/902010_14/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
+          "SMaBiT",
           "Bitron Home",
           "Bitron Video"
         ],
-        "manufacturerID": [
-          "Bitron Home",
-          "Bitron Video"
+        "productId": [
+          "902010/14",
+          "AV2010/14"
         ],
-        "productId": "902010/22",
-        "deviceId": 1026,
-        "profileId": 260,
         "endpoints": {
           "1": {
             "clusters": [
@@ -183,14 +124,539 @@
         },
         "learnmode": {
           "instruction": {
-            "en": "Press on/off button until red led flashes.",
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
-            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+            "en": "Press and hold the function key for about 10 seconds until the red LED lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
       }
     },
     {
+      "id": "902010_16",
+      "class": "socket",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "name": {
+        "en": "AV2010/16 Wall-mount relay with dimmer",
+        "nl": "AV2010/16 Inbouwactuator met dimmer",
+        "de": "AV2010/16 Unterputzaktor mit Dimmer"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_16/assets/images/xlarge.png",
+        "large": "/drivers/902010_16/assets/images/large.png",
+        "small": "/drivers/902010_16/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/16",
+          "AV2010/16"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "bindings": [
+              0
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_16/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds. During these 10 seconds, the function key will light up red several times.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt. Tijdens deze 10 seconden zal de functietoets verschillende keren rood oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_18",
+      "class": "socket",
+      "capabilities": [
+        "onoff"
+      ],
+      "name": {
+        "en": "AV2010/18 Wall-mount relay",
+        "nl": "AV2010/18 Inbouwactuator",
+        "de": "AV2010/18 Unterputzaktor"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_16/assets/images/xlarge.png",
+        "large": "/drivers/902010_16/assets/images/large.png",
+        "small": "/drivers/902010_16/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/18",
+          "AV2010/18"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6
+            ],
+            "bindings": [
+              0
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_16/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds. During these 10 seconds, the function key will light up red several times.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt. Tijdens deze 10 seconden zal de functietoets verschillende keren rood oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_21a",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "name": {
+        "en": "AV2010/21A Compact magnetic contact",
+        "nl": "AV2010/21A Compact magneetcontact",
+        "de": "AV2010/21A Kompakter Magnetkontakt"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_21a/assets/images/xlarge.png",
+        "large": "/drivers/902010_21a/assets/images/large.png",
+        "small": "/drivers/902010_21a/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/21A",
+          "AV2010/21A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "inverse_enabled",
+          "type": "checkbox",
+          "label": {
+            "en": "Inverse alarm",
+            "nl": "Achteruit alarm",
+            "de": "Umgekehrter Alarm"
+          },
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "902010_21b",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2"
+        ]
+      },
+      "name": {
+        "en": "AV2010/21B Magentic contact with additional input for wired sensors",
+        "nl": "AV2010/21B Magentic contact met extra ingang voor bedrade sensoren",
+        "de": "AV2010/21B Magnetkontakt mit Eingang für kabelgebundene Sensoren"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_21b/assets/images/xlarge.png",
+        "large": "/drivers/902010_21b/assets/images/large.png",
+        "small": "/drivers/902010_21b/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/21B",
+          "AV2010/21B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "inverse_enabled",
+          "type": "checkbox",
+          "label": {
+            "en": "Inverse alarm",
+            "nl": "Achteruit alarm",
+            "de": "Umgekehrter Alarm"
+          },
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "902010_21c",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_contact",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL",
+          "INTERNAL"
+        ]
+      },
+      "name": {
+        "en": "AV2010/21C Ultra-flat magnetic contact",
+        "nl": "AV2010/21C Ultra-plat magnetisch contact",
+        "de": "AV2010/21C Ultraflacher Magnetkontakt"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_21c/assets/images/xlarge.png",
+        "large": "/drivers/902010_21c/assets/images/large.png",
+        "small": "/drivers/902010_21c/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/21C",
+          "AV2010/21C"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      },
+      "settings": [
+        {
+          "id": "inverse_enabled",
+          "type": "checkbox",
+          "label": {
+            "en": "Inverse alarm",
+            "nl": "Achteruit alarm",
+            "de": "Umgekehrter Alarm"
+          },
+          "value": false
+        }
+      ]
+    },
+    {
+      "id": "902010_22",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "name": {
+        "en": "AV2010/22 Professional motion sensor",
+        "nl": "AV2010/22 Professionele bewegingsmelder",
+        "de": "AV2010/22 Professioneller Bewegungsmelder"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_22/assets/images/xlarge.png",
+        "large": "/drivers/902010_22/assets/images/large.png",
+        "small": "/drivers/902010_22/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/22",
+          "AV2010/22"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_22/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds until the red LED lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_22a",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "name": {
+        "en": "AV2010/22A Design motion sensor",
+        "nl": "AV2010/22A Ontwerp bewegingsmelder",
+        "de": "AV2010/22A Design Bewegungsmelder"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_22a/assets/images/xlarge.png",
+        "large": "/drivers/902010_22a/assets/images/large.png",
+        "small": "/drivers/902010_22a/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/22A",
+          "AV2010/22A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_22a/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds until the red LED lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_22b",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "name": {
+        "en": "AV2010/22B Outdoor motion sensor",
+        "nl": "AV2010/22B Bewegingssensor voor buiten",
+        "de": "AV2010/22B Außenbewegungsmelder"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_22b/assets/images/xlarge.png",
+        "large": "/drivers/902010_22b/assets/images/large.png",
+        "small": "/drivers/902010_22b/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/22B",
+          "AV2010/22B"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_22b/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds until the red LED lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_23",
+      "class": "remote",
+      "capabilities": [],
+      "energy": {
+        "batteries": [
+          "CR2032"
+        ]
+      },
+      "name": {
+        "en": "AV2010/23 4-button remote control",
+        "nl": "AV2010/23 4-knops afstandsbediening",
+        "de": "AV2010/23 4‐Tasten Fernbedienung"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_23/assets/images/xlarge.png",
+        "large": "/drivers/902010_23/assets/images/large.png",
+        "small": "/drivers/902010_23/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/23",
+          "AV2010/23"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3
+            ],
+            "bindings": [
+              4,
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the •• key for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de •• toets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Taste •• für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+	{
       "id": "902010_24",
       "class": "sensor",
       "capabilities": [
@@ -205,43 +671,97 @@
         ]
       },
       "name": {
-        "en": "Optical Smoke Detector 902010/24",
-        "nl": "Optical Smoke Detector 902010/24",
-        "de": "Optischer Rauchmelder 902010/24"
+        "en": "AV2010/24 Optical smoke detector",
+        "nl": "AV2010/24 Optische rookdetector",
+        "de": "AV2010/24 Optischer Rauchmelder"
       },
       "images": {
+        "xlarge": "/drivers/902010_24/assets/images/xlarge.png",
         "large": "/drivers/902010_24/assets/images/large.png",
         "small": "/drivers/902010_24/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
+          "SMaBiT",
           "Bitron Home",
           "Bitron Video"
         ],
-        "manufacturerID": [
-          "Bitron Home",
-          "Bitron Video"
+        "productId": [
+          "902010/24",
+          "AV2010/24"
         ],
-        "productId": "902010/24",
-        "deviceId": 1026,
-        "profileId": 260,
         "endpoints": {
           "1": {
             "clusters": [
               0,
               3,
-              1280
+              1280,
+              1282
             ],
-            "bindings": [
-              1280
-            ]
+            "bindings": []
           }
         },
         "learnmode": {
+          "image": "/drivers/902010_24/assets/learnmode.svg",
           "instruction": {
-            "en": "Press on/off button until red led flashes.",
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
-            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+            "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered.\n\nDisclaimer: Do not rely solely on this app under any circumstances, as both Homey and this app may cease to function as expected in the event of a fire.",
+            "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.\n\nDisclaimer: Vertrouw in geen geval alleen op deze app, want zowel Homey als deze app kunnen in geval van brand stoppen met werken zoals verwacht.",
+            "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet.\n\nDisclaimer: Verlassen Sie sich unter keinen Umständen ausschließlich auf diese App, da sowohl Homey als auch diese App im Falle eines Brandes nicht mehr wie erwartet funktionieren könnten."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_24a",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_smoke",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA",
+          "AA"
+        ]
+      },
+      "name": {
+        "en": "AV2010/24A Optical smoke detector",
+        "nl": "AV2010/24A Optische rookdetector",
+        "de": "AV2010/24A Optischer Rauchmelder"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_24a/assets/images/xlarge.png",
+        "large": "/drivers/902010_24a/assets/images/large.png",
+        "small": "/drivers/902010_24a/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/24A",
+          "AV2010/24A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280,
+              1282
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_24a/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered.\n\nDisclaimer: Do not rely solely on this app under any circumstances, as both Homey and this app may cease to function as expected in the event of a fire.",
+            "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.\n\nDisclaimer: Vertrouw in geen geval alleen op deze app, want zowel Homey als deze app kunnen in geval van brand stoppen met werken zoals verwacht.",
+            "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet.\n\nDisclaimer: Verlassen Sie sich unter keinen Umständen ausschließlich auf diese App, da sowohl Homey als auch diese App im Falle eines Brandes nicht mehr wie erwartet funktionieren könnten."
           }
         }
       }
@@ -255,26 +775,25 @@
         "meter_power"
       ],
       "name": {
-        "en": "Smart Plug 902010/25",
-        "nl": "Smart Plug 902010/25",
-        "de": "Smart Plug 902010/25"
+        "en": "AV2010/25 Smart Plug with metering",
+        "nl": "AV2010/25 Smart Plug met meting",
+        "de": "AV2010/25 Smart Plug mit Verbrauchsdatenerfassung"
       },
       "images": {
+        "xlarge": "/drivers/902010_25/assets/images/xlarge.png",
         "large": "/drivers/902010_25/assets/images/large.png",
         "small": "/drivers/902010_25/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
+          "SMaBiT",
           "Bitron Home",
           "Bitron Video"
         ],
-        "manufacturerID": [
-          "Bitron Home",
-          "Bitron Video"
+        "productId": [
+          "902010/25",
+          "AV2010/25"
         ],
-        "productId": "902010/25",
-        "deviceId": 81,
-        "profileId": 260,
         "endpoints": {
           "1": {
             "clusters": [
@@ -291,10 +810,63 @@
           }
         },
         "learnmode": {
+          "image": "/drivers/902010_25/assets/learnmode.svg",
           "instruction": {
-            "en": "Press on/off button until red led flashes.",
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
-            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+            "en": "Press and hold the function key for about 10 seconds. During these 10 seconds, the function key will light up red several times.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt. Tijdens deze 10 seconden zal de functietoets verschillende keren rood oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_26",
+      "class": "socket",
+      "capabilities": [
+        "onoff",
+        "dim"
+      ],
+      "name": {
+        "en": "AV2010/26 Smart Plug with dimmer",
+        "nl": "AV2010/26 Smart Plug met dimmer",
+        "de": "AV2010/26 Smart Plug mit Dimmer"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_25/assets/images/xlarge.png",
+        "large": "/drivers/902010_25/assets/images/large.png",
+        "small": "/drivers/902010_25/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/26",
+          "AV2010/26"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              4,
+              5,
+              6,
+              8
+            ],
+            "bindings": [
+              0
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_25/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds. During these 10 seconds, the function key will light up red several times.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt. Tijdens deze 10 seconden zal de functietoets verschillende keren rood oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
       }
@@ -306,26 +878,25 @@
         "onoff"
       ],
       "name": {
-        "en": "Smart Plug 902010/28",
-        "nl": "Smart Plug 902010/28",
-        "de": "Smart Plug 902010/28"
+        "en": "AV2010/28 Smart Plug",
+        "nl": "AV2010/28 Smart Plug met schakelfunctie",
+        "de": "AV2010/28 Smart Plug mit Schaltfunktion"
       },
       "images": {
-        "large": "/drivers/902010_28/assets/images/large.png",
-        "small": "/drivers/902010_28/assets/images/small.png"
+        "xlarge": "/drivers/902010_25/assets/images/xlarge.png",
+        "large": "/drivers/902010_25/assets/images/large.png",
+        "small": "/drivers/902010_25/assets/images/small.png"
       },
       "zigbee": {
         "manufacturerName": [
+          "SMaBiT",
           "Bitron Home",
           "Bitron Video"
         ],
-        "manufacturerID": [
-          "Bitron Home",
-          "Bitron Video"
+        "productId": [
+          "902010/28",
+          "AV2010/28"
         ],
-        "productId": "902010/28",
-        "deviceId": 9,
-        "profileId": 260,
         "endpoints": {
           "1": {
             "clusters": [
@@ -341,10 +912,123 @@
           }
         },
         "learnmode": {
+          "image": "/drivers/902010_25/assets/learnmode.svg",
           "instruction": {
-            "en": "Press on/off button until red led flashes.",
-            "nl": "Duw op de aan/uit knop totdat de rode led knippert.",
-            "de": "Drücken Sie den Ein-/Ausschalter, bis die rote LED blinkt."
+            "en": "Press and hold the function key for about 10 seconds. During these 10 seconds, the function key will light up red several times.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt. Tijdens deze 10 seconden zal de functietoets verschillende keren rood oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+	{
+      "id": "902010_29",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_generic",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER",
+          "OTHER",
+          "OTHER",
+          "OTHER"
+        ]
+      },
+      "name": {
+        "en": "AV2010/29 Outdoor Siren",
+        "nl": "AV2010/29 Buitensirene",
+        "de": "AV2010/29 Außensirene"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_29/assets/images/xlarge.png",
+        "large": "/drivers/902010_29/assets/images/large.png",
+        "small": "/drivers/902010_29/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/29",
+          "AV2010/29"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280,
+              1282
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_29/assets/learnmode.svg",
+          "instruction": {
+            "en": "Turn on the siren by moving the power switch downwards.\n\nPress and hold the function key for about 10 seconds until the left LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered.,",
+            "nl": "Zet de sirene aan door de schakelaar naar beneden te verplaatsen.\n\nHoud de functieknop 10 seconden ingedrukt tot de linker LEDs kort oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Bewegen Sie den Netzschalter nach unten.\n\nHalten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die linke LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_29a",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_generic",
+        "alarm_tamper",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "OTHER",
+          "OTHER"
+        ]
+      },
+      "name": {
+        "en": "AV2010/29A Outdoor Siren",
+        "nl": "AV2010/29A Buitensirene",
+        "de": "AV2010/29A Außensirene"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_29a/assets/images/xlarge.png",
+        "large": "/drivers/902010_29a/assets/images/large.png",
+        "small": "/drivers/902010_29a/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/29A",
+          "AV2010/29A"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280,
+              1282
+            ],
+            "bindings": []
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_29a/assets/learnmode.svg",
+          "instruction": {
+            "en": "Turn on the siren by moving the power switch (5) downwards.\n\nPress and hold the function key for about 10 seconds until the left LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered.,",
+            "nl": "Zet de sirene aan door de schakelaar (5) naar beneden te verplaatsen.\n\nHoud de functieknop 10 seconden ingedrukt tot de linker LEDs kort oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Bewegen Sie den Netzschalter (5) nach unten.\n\nHalten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die linke LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
       }
@@ -355,7 +1039,8 @@
       "capabilities": [
         "measure_battery",
         "target_temperature",
-        "measure_temperature"
+        "measure_temperature",
+        "thermostat_mode_smabit"
       ],
       "energy": {
         "batteries": [
@@ -378,17 +1063,25 @@
         }
       },
       "name": {
-        "en": "Wall Thermostat 902010/32",
-        "nl": "Wandthermostaat 902010/32",
-        "de": "Wandthermostat 902010/32"
+        "en": "AV2010/32 Thermostat",
+        "nl": "AV2010/32 Wandthermostaat",
+        "de": "AV2010/32 Wandthermostat"
       },
       "images": {
+        "xlarge": "/drivers/902010_32/assets/images/xlarge.png",
         "large": "/drivers/902010_32/assets/images/large.png",
         "small": "/drivers/902010_32/assets/images/small.png"
       },
       "zigbee": {
-        "manufacturerName": "Bitron Home",
-        "productId": "902010/32",
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/32",
+          "AV2010/32"
+        ],
         "endpoints": {
           "1": {
             "clusters": [
@@ -397,7 +1090,8 @@
               3,
               4,
               5,
-              513
+              513,
+              516
             ],
             "bindings": [
               513
@@ -405,6 +1099,7 @@
           }
         },
         "learnmode": {
+          "image": "/drivers/902010_32/assets/learnmode.svg",
           "instruction": {
             "en": "If the device is not part of a ZigBee network (device not joined), press any of the buttons for at least 1 second to start the join process.\n\nIf no open ZigBee network is found, the termostat will return to the unjoined state (“no NET” message on the LCD-display).\n\nPlease read the user manual for additional information.",
             "nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (“no NET” op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
@@ -413,6 +1108,82 @@
         }
       },
       "settings": [
+        {
+          "id": "thermostat_mode",
+          "type": "radio",
+          "label": {
+            "en": "Thermostat Mode",
+            "nl": "Thermostaat Modus",
+            "de": "Thermostat Modus"
+          },
+          "value": "heat",
+          "values": [
+            {
+              "id": "heat",
+              "label": {
+                "en": "Heating mode",
+                "nl": "Verwarmingsmodus",
+                "de": "Heizmodus"
+              }
+            },
+            {
+              "id": "cool",
+              "label": {
+                "en": "Cooling mode",
+                "nl": "Koelmodus",
+                "de": "Kühlmodus"
+              }
+            }
+          ]
+        },
+        {
+          "id": "temp_display_mode",
+          "type": "radio",
+          "label": {
+            "en": "Temperature Display Mode",
+            "nl": "Temperatuur Weergave Modus",
+            "de": "Temperaturanzeigemodus"
+          },
+          "value": "celsius",
+          "values": [
+            {
+              "id": "celsius",
+              "label": {
+                "en": "°C",
+                "nl": "°C",
+                "de": "°C"
+              }
+            },
+            {
+              "id": "fahrenheit",
+              "label": {
+                "en": "°F",
+                "nl": "°F",
+                "de": "°F"
+              }
+            }
+          ],
+          "hint": {
+            "en": "Select whether the temperature on the thermostat dsplay will be displayed in °C or °F.",
+            "nl": "Selecteer of de temperatuur op het display van de thermostaat in °C of °F moet worden weergegeven.",
+            "de": "Wähle aus, ob die Temperatur auf dem Thermostat-Dsplay in °C oder °F anzeigen wird."
+          }
+        },
+        {
+          "id": "keyboard_lockout",
+          "type": "checkbox",
+          "label": {
+            "en": "Key lock",
+            "nl": "Sleutelslot",
+            "de": "Tastensperre"
+          },
+          "hint": {
+            "en": "When active, the temperature can't be manipulated on the device itself.",
+            "nl": "Als hij actief is, kan de temperatuur op het toestel zelf niet worden gewijzigd.",
+            "de": "Wenn sie aktiv ist, kann die Temperatur am Gerät selbst nicht verändert werden."
+          },
+          "value": false
+        },
         {
           "id": "temperature_Calibration",
           "type": "number",
@@ -434,21 +1205,910 @@
           }
         },
         {
-          "id": "heatOnly_enabled",
-          "type": "checkbox",
+          "id": "battery_voltage_max",
+          "type": "number",
           "label": {
-            "en": "Only heating mode",
-            "nl": "Alleen de verwarmingsmodus",
-            "de": "Nur Heizmodus"
+            "en": "Temperature Calibration",
+            "nl": "Temperatuurkalibratie",
+            "de": "Betterie-Spannung (Volt pro Batterie)"
           },
           "hint": {
-            "en": "When active, the appliance can only heat.\n\nOnly deactivate if a cooling system is connected to the thermostat!",
-            "nl": "Wanneer het apparaat actief is, kan het alleen verwarmen.\n\nAlleen deactiveren als er een koelsysteem op de thermostaat is aangesloten!",
-            "de": "Wenn aktiv, kann das Gerät nur heizen.\n\nNur deaktivieren, wenn eine Kühlung am Thermostat angeschlossen wurde!"
+            "en": "Indicates the final charge voltage of the batteries.\n\nHomey can calculate the battery condition correctly with this specification, even if rechargeable batteries (like NiZn) are used. The voltage for normal AA alkaline batteries is preset (1.6V).\n\nPlease specify the end of charge voltage for one battery and not a combined value.",
+            "nl": "Geeft het einde van de laadspanning van de batterijen aan.\n\nHomey kan de batterijconditie correct berekenen met deze specificatie, zelfs als oplaadbare batterijen (zoals NiZn) worden gebruikt. Het voltage voor normale AA alkalinebatterijen is vooraf ingesteld (1,6 V).\n\nGelieve de eindelaadspanning voor een batterij op te geven en niet een gecombineerde waarde.",
+            "de": "Gibt die Ladeschlussspannung der Batterien an.\n\nHomey kann mit dieser Angabe den Batteriezustand korrekt berechnen, auch wenn wiederaufladbare Batterien (wie NiZn) verwendet werden. Die Spannung für normale AA-Alkalibatterien ist voreingestellt (1,6 V).\n\nBitte geben Sie die Ladeschlussspannung für eine Batterie an und nicht einen kombinierten Wert."
           },
-          "value": true
+          "value": 1.6,
+          "attr": {
+            "step": 0.1,
+            "min": 1.2,
+            "max": 2
+          }
         }
       ]
+    },
+    {
+      "id": "902010_33",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_motion",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR2477"
+        ]
+      },
+      "name": {
+        "en": "AV2010/33 Vibration sensor",
+        "nl": "AV2010/33 Trillingssensor",
+        "de": "AV2010/33 Erschütterungssensor"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_33/assets/images/xlarge.png",
+        "large": "/drivers/902010_33/assets/images/large.png",
+        "small": "/drivers/902010_33/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/33",
+          "AV2010/33"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the function button on the side of the sensor with a pointed object for about 10 seconds until the red LED on the front lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de functietoets aan de zijkant van de sensor met een puntig voorwerp ongeveer 10 seconden ingedrukt tot de rode LED aan de voorkant één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste an der Seite des Sensors für etwa 10 Sekunden mit einem spitzen Gegenstand gedrückt, bis die rote LED auf der Vorderseite einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_34",
+      "class": "remote",
+      "capabilities": [],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "name": {
+        "en": "AV2010/34 Wall switch with 4 buttons",
+        "nl": "AV2010/34 Wandschakelaar met 4 functietoetsen",
+        "de": "AV2010/34 Wandschalter mit 4 Funktionstasten"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_34/assets/images/xlarge.png",
+        "large": "/drivers/902010_34/assets/images/large.png",
+        "small": "/drivers/902010_34/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/34",
+          "AV2010/34"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              1,
+              3
+            ],
+            "bindings": [
+              4,
+              5,
+              6,
+              8
+            ]
+          }
+        },
+        "learnmode": {
+          "instruction": {
+            "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
+    },
+    {
+      "id": "902010_37",
+      "class": "sensor",
+      "capabilities": [
+        "alarm_water",
+        "alarm_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "name": {
+        "en": "AV2010/37 Water detector with siren",
+        "nl": "AV2010/37 Water detector met sirene",
+        "de": "AV2010/37 Wassermelder mit Sirene"
+      },
+      "images": {
+        "xlarge": "/drivers/902010_37/assets/images/xlarge.png",
+        "large": "/drivers/902010_37/assets/images/large.png",
+        "small": "/drivers/902010_37/assets/images/small.png"
+      },
+      "zigbee": {
+        "manufacturerName": [
+          "SMaBiT",
+          "Bitron Home",
+          "Bitron Video"
+        ],
+        "productId": [
+          "902010/37",
+          "AV2010/37"
+        ],
+        "endpoints": {
+          "1": {
+            "clusters": [
+              0,
+              3,
+              1280
+            ],
+            "bindings": [
+              1280
+            ]
+          }
+        },
+        "learnmode": {
+          "image": "/drivers/902010_37/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the function key for about 10 seconds until you hear a short beep.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+            "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt tot u een korte pieptoon hoort.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+            "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis Sie einen kurzen Signalton hören.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+          }
+        }
+      }
     }
-  ]
+  ],
+  "capabilities": {
+    "thermostat_mode_smabit": {
+      "type": "enum",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat modus",
+        "de": "Thermostat-Modus",
+        "fr": "Mode thermostat",
+        "it": "Modalità termostato",
+        "sv": "Termostatläge",
+        "no": "Termostatmodus",
+        "es": "Modo del termostato",
+        "da": "Termostattilstand"
+      },
+      "desc": {
+        "en": "Mode of the thermostat",
+        "nl": "Modus van de thermostaat",
+        "de": "Modus des Thermostates",
+        "fr": "Mode du thermostat",
+        "it": "Modalità del termostato",
+        "sv": "Läge för termostaten",
+        "no": "Modus for termostaten",
+        "es": "Modo del termostato",
+        "da": "Tilstand for termostat"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Acitv",
+            "nl": "Actief",
+            "de": "Aktitv",
+            "fr": "Actif",
+            "it": "Attivo",
+            "sv": "Aktiva",
+            "no": "Aktiv",
+            "es": "Activo",
+            "da": "Aktiv"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Désactivé",
+            "it": "Disattivata",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Desactivado",
+            "da": "Deaktiveret"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "$flow": {
+        "triggers": [
+          {
+            "id": "thermostat_mode_changed",
+            "title": {
+              "en": "Thermostat mode has changed",
+              "nl": "Thermostaat modus is veranderd",
+              "de": "Thermostat-Modus hat sich geändert",
+              "fr": "Mode thermostat a été modifié",
+              "it": "La modalità del termostato è cambiata",
+              "sv": "Termostatläge ändrades",
+              "no": "Termostatmodus ble endret",
+              "es": "El modo del termostato ha cambiado",
+              "da": "Termostattilstand er blevet ændret"
+            },
+            "args": [
+              {
+                "name": "thermostat_mode",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "auto",
+                    "title": {
+                      "en": "Acitv",
+                      "nl": "Actief",
+                      "de": "Aktitv",
+                      "fr": "Actif",
+                      "it": "Attivo",
+                      "sv": "Aktiva",
+                      "no": "Aktiv",
+                      "es": "Activo",
+                      "da": "Aktiv"
+                    }
+                  },
+                  {
+                    "id": "off",
+                    "title": {
+                      "en": "Off",
+                      "nl": "Uit",
+                      "de": "Aus",
+                      "fr": "Désactivé",
+                      "it": "Disattivata",
+                      "sv": "Av",
+                      "no": "Av",
+                      "es": "Desactivado",
+                      "da": "Deaktiveret"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "conditions": [
+          {
+            "id": "thermostat_mode_is",
+            "title": {
+              "en": "Thermostat mode !{{is|is not}}",
+              "nl": "Thermostaat modus !{{is|is niet}}",
+              "de": "Thermostat-Modus !{{ist|ist nicht}}",
+              "fr": "Mode thermostat !{{est|n'est pas}}",
+              "it": "La modalità del termostato !{{è|non è}}",
+              "sv": "Termostatläge !{{är|är inte}}",
+              "no": "Termostatmodus !{{er|er ikke}}",
+              "es": "El modo del termostato !{{está|no está}}",
+              "da": "Termostattilstand !{{er|er ikke}}"
+            },
+            "args": [
+              {
+                "name": "thermostat_mode",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "auto",
+                    "title": {
+                      "en": "Acitv",
+                      "nl": "Actief",
+                      "de": "Aktitv",
+                      "fr": "Actif",
+                      "it": "Attivo",
+                      "sv": "Aktiva",
+                      "no": "Aktiv",
+                      "es": "Activo",
+                      "da": "Aktiv"
+                    }
+                  },
+                  {
+                    "id": "off",
+                    "title": {
+                      "en": "Off",
+                      "nl": "Uit",
+                      "de": "Aus",
+                      "fr": "Désactivé",
+                      "it": "Disattivata",
+                      "sv": "Av",
+                      "no": "Av",
+                      "es": "Desactivado",
+                      "da": "Deaktiveret"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "id": "thermostat_mode_set",
+            "title": {
+              "en": "Set the mode",
+              "nl": "Stel de modus in",
+              "de": "Modus setzen",
+              "fr": "Définir le mode",
+              "it": "Imposta la modalità",
+              "sv": "Ställ in läget",
+              "no": "Innstill modusen",
+              "es": "Configurar el modo",
+              "da": "Indstil tilstanden"
+            },
+            "args": [
+              {
+                "name": "thermostat_mode",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "auto",
+                    "title": {
+                      "en": "Acitv",
+                      "nl": "Actief",
+                      "de": "Aktitv",
+                      "fr": "Actif",
+                      "it": "Attivo",
+                      "sv": "Aktiva",
+                      "no": "Aktiv",
+                      "es": "Activo",
+                      "da": "Aktiv"
+                    }
+                  },
+                  {
+                    "id": "off",
+                    "title": {
+                      "en": "Off",
+                      "nl": "Uit",
+                      "de": "Aus",
+                      "fr": "Désactivé",
+                      "it": "Disattivata",
+                      "sv": "Av",
+                      "no": "Av",
+                      "es": "Desactivado",
+                      "da": "Deaktiveret"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "on_button1_23",
+        "title": {
+          "en": "Button 1 pressed",
+          "nl": "Knop 1 ingedrukt",
+          "de": "Taste 1 gedrückt",
+          "fr": "Bouton 1 enfoncé",
+          "it": "Tasto 1 premuto",
+          "sv": "Knapp 1 tryckt in",
+          "no": "Knapp 1 ble trykket",
+          "es": "Botón 1 pulsado",
+          "da": "Knap 1 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button2_23",
+        "title": {
+          "en": "Button 2 pressed",
+          "nl": "Knop 2 ingedrukt",
+          "de": "Taste 2 gedrückt",
+          "fr": "Bouton 2 enfoncé",
+          "it": "Tasto 2 premuto",
+          "sv": "Knapp 2 tryckt in",
+          "no": "Knapp 2 ble trykket",
+          "es": "Botón 2 pulsado",
+          "da": "Knap 2 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button3_23",
+        "title": {
+          "en": "Button 3 pressed",
+          "nl": "Knop 3 ingedrukt",
+          "de": "Taste 3 gedrückt",
+          "fr": "Bouton 3 enfoncé",
+          "it": "Tasto 3 premuto",
+          "sv": "Knapp 3 tryckt in",
+          "no": "Knapp 3 ble trykket",
+          "es": "Botón 3 pulsado",
+          "da": "Knap 3 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button4_23",
+        "title": {
+          "en": "Button 4 pressed",
+          "nl": "Knop 4 ingedrukt",
+          "de": "Taste 4 gedrückt",
+          "fr": "Bouton 4 enfoncé",
+          "it": "Tasto 4 premuto",
+          "sv": "Knapp 4 tryckt in",
+          "no": "Knapp 4 ble trykket",
+          "es": "Botón 4 pulsado",
+          "da": "Knap 4 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button0_34",
+        "title": {
+          "en": "Button 0 pressed",
+          "nl": "Knop 0 ingedrukt",
+          "de": "Taste 0 gedrückt",
+          "fr": "Bouton 0 enfoncé",
+          "it": "Tasto 0 premuto",
+          "sv": "Knapp 0 tryckt in",
+          "no": "Knapp 0 ble trykket",
+          "es": "Botón 0 pulsado",
+          "da": "Knap 0 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button1_34",
+        "title": {
+          "en": "Button 1 pressed",
+          "nl": "Knop 1 ingedrukt",
+          "de": "Taste 1 gedrückt",
+          "fr": "Bouton 1 enfoncé",
+          "it": "Tasto 1 premuto",
+          "sv": "Knapp 1 tryckt in",
+          "no": "Knapp 1 ble trykket",
+          "es": "Botón 1 pulsado",
+          "da": "Knap 1 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button2_34",
+        "title": {
+          "en": "Button 2 pressed",
+          "nl": "Knop 2 ingedrukt",
+          "de": "Taste 2 gedrückt",
+          "fr": "Bouton 2 enfoncé",
+          "it": "Tasto 2 premuto",
+          "sv": "Knapp 2 tryckt in",
+          "no": "Knapp 2 ble trykket",
+          "es": "Botón 2 pulsado",
+          "da": "Knap 2 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button3_34",
+        "title": {
+          "en": "Button 3 pressed",
+          "nl": "Knop 3 ingedrukt",
+          "de": "Taste 3 gedrückt",
+          "fr": "Bouton 3 enfoncé",
+          "it": "Tasto 3 premuto",
+          "sv": "Knapp 3 tryckt in",
+          "no": "Knapp 3 ble trykket",
+          "es": "Botón 3 pulsado",
+          "da": "Knap 3 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button4_34",
+        "title": {
+          "en": "Button 4 pressed",
+          "nl": "Knop 4 ingedrukt",
+          "de": "Taste 4 gedrückt",
+          "fr": "Bouton 4 enfoncé",
+          "it": "Tasto 4 premuto",
+          "sv": "Knapp 4 tryckt in",
+          "no": "Knapp 4 ble trykket",
+          "es": "Botón 4 pulsado",
+          "da": "Knap 4 er trykket ned"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "24_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "24_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24"
+          }
+        ]
+      },
+      {
+        "id": "24_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24"
+          }
+        ]
+      },
+	  {
+        "id": "24A_siren_test",
+        "title": {
+          "en": "Test siren",
+          "de": "Sirene testen",
+          "nl": "Test sirene"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24a"
+          }
+        ]
+      },
+	  {
+        "id": "24A_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24a"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "24A_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24a"
+          }
+        ]
+      },
+      {
+        "id": "24A_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_24a"
+          }
+        ]
+      },
+	  {
+        "id": "29_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "29_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29"
+          }
+        ]
+      },
+      {
+        "id": "29_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29"
+          }
+        ]
+      }
+      {
+        "id": "29A_siren_test",
+        "title": {
+          "en": "Test siren",
+          "de": "Sirene testen",
+          "nl": "Test sirene"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29a"
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29a"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29a"
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "name": "my_device",
+            "type": "device",
+            "filter": "driver_id=902010_29a"
+          }
+        ]
+      }
+    ]
+  }
 }

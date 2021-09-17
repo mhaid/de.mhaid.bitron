@@ -58,5 +58,32 @@
   },
   "3.0.8": {
     "en": "Added support for Homey V5 + Bugfixes"
+  },
+  "3.0.9": {
+    "en": "Fix bugfix for _21, _22 and _24 devices"
+  },
+  "4.1.0": {
+    "en": "Big Update! We now support a bunch of new devices and added lots of features."
+  },
+  "4.1.1": {
+    "en": "Big Update! We now support a bunch of new devices and added lots of features."
+  },
+  "4.2.1": {
+    "en": "Enabled debug-mode and included experimental feature"
+  },
+  "4.3.0": {
+    "en": "Added support for AV2010/29A, new mode selector and improved performance of AV2010/32, improved power measurment of AV2010/25, fixed bug with AV2010/23 and some general improvements"
+  },
+  "4.3.1": {
+    "en": "Fixed bug with AV2010/29A"
+  },
+  "4.3.2": {
+    "en": "Fixed bug with AV2010/32 where the device occasionally becomes unavailable after restart of the app"
+  },
+  "4.3.3": {
+    "en": "Bugfix for AV2010/23"
+  },
+  "4.3.4": {
+    "en": "Fixed issue of AV2010/23"
   }
 }

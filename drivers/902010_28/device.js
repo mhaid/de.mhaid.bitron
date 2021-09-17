@@ -3,6 +3,8 @@
 const { ZigBeeDevice } = require('homey-zigbeedriver');
 const { CLUSTER } = require('zigbee-clusters');
 
+var deviceInterval = null;
+
 class Bitron_902010_28 extends ZigBeeDevice 
 {
 
@@ -10,7 +12,7 @@ class Bitron_902010_28 extends ZigBeeDevice
 	async onNodeInit({ zclNode }) {
 
 		// enable debugging
-		this.enableDebug();
+		//this.enableDebug();
 
 		// print the node's info to the console
 		this.printNode();
@@ -18,21 +20,22 @@ class Bitron_902010_28 extends ZigBeeDevice
 		// capabilities
 		this.registerCapability('onoff', CLUSTER.ON_OFF);
 
-		// reportlisteners
-		// Report is send if status is changed or after 5 min
-		await this.configureAttributeReporting([
-			{
-				endpointId: 1,
-				cluster: CLUSTER.ON_OFF,
-				attributeName: 'onOff',
-				minInterval: 1,
-				maxInterval: 300,
-				minChange: 1,
-			}])
-		zclNode.endpoints[1].clusters.onOff.on('attr.onOff', (value) => {
-			this.log('onOff', value);
-			this.setCapabilityValue('onoff', value === 1);
-		});
+		// manual attributeReportListener
+		deviceInterval = this.homey.setInterval(async () => {
+			try {
+				const value = await zclNode.endpoints[1].clusters.onOff.readAttributes('onOff');
+				this.setCapabilityValue('onoff',value.onOff);
+			} catch (error) {
+				this.log(error);
+			}
+		},5000);
+	}
+
+	onDeleted() {
+		if(deviceInterval != null) {
+			this.homey.clearInterval(deviceInterval);
+		}
+		super.onDeleted();
 	}
 }
 
