@@ -656,7 +656,7 @@
         }
       }
     },
-	{
+    {
       "id": "902010_24",
       "class": "sensor",
       "capabilities": [
@@ -2023,7 +2023,7 @@
             "filter": "driver_id=902010_29"
           }
         ]
-      }
+      },
       {
         "id": "29A_siren_test",
         "title": {
