@@ -1,0 +1,79 @@
+{
+  "triggers": [
+    {
+      "id": "on_button0_34",
+      "title": {
+        "en": "Button 0 pressed",
+        "nl": "Knop 0 ingedrukt",
+        "de": "Taste 0 gedrückt",
+        "fr": "Bouton 0 enfoncé",
+        "it": "Tasto 0 premuto",
+        "sv": "Knapp 0 tryckt in",
+        "no": "Knapp 0 ble trykket",
+        "es": "Botón 0 pulsado",
+        "da": "Knap 0 er trykket ned"
+      },
+      "args": []
+    },
+    {
+      "id": "on_button1_34",
+      "title": {
+        "en": "Button 1 pressed",
+        "nl": "Knop 1 ingedrukt",
+        "de": "Taste 1 gedrückt",
+        "fr": "Bouton 1 enfoncé",
+        "it": "Tasto 1 premuto",
+        "sv": "Knapp 1 tryckt in",
+        "no": "Knapp 1 ble trykket",
+        "es": "Botón 1 pulsado",
+        "da": "Knap 1 er trykket ned"
+      },
+      "args": []
+    },
+    {
+      "id": "on_button2_34",
+      "title": {
+        "en": "Button 2 pressed",
+        "nl": "Knop 2 ingedrukt",
+        "de": "Taste 2 gedrückt",
+        "fr": "Bouton 2 enfoncé",
+        "it": "Tasto 2 premuto",
+        "sv": "Knapp 2 tryckt in",
+        "no": "Knapp 2 ble trykket",
+        "es": "Botón 2 pulsado",
+        "da": "Knap 2 er trykket ned"
+      },
+      "args": []
+    },
+    {
+      "id": "on_button3_34",
+      "title": {
+        "en": "Button 3 pressed",
+        "nl": "Knop 3 ingedrukt",
+        "de": "Taste 3 gedrückt",
+        "fr": "Bouton 3 enfoncé",
+        "it": "Tasto 3 premuto",
+        "sv": "Knapp 3 tryckt in",
+        "no": "Knapp 3 ble trykket",
+        "es": "Botón 3 pulsado",
+        "da": "Knap 3 er trykket ned"
+      },
+      "args": []
+    },
+    {
+      "id": "on_button4_34",
+      "title": {
+        "en": "Button 4 pressed",
+        "nl": "Knop 4 ingedrukt",
+        "de": "Taste 4 gedrückt",
+        "fr": "Bouton 4 enfoncé",
+        "it": "Tasto 4 premuto",
+        "sv": "Knapp 4 tryckt in",
+        "no": "Knapp 4 ble trykket",
+        "es": "Botón 4 pulsado",
+        "da": "Knap 4 er trykket ned"
+      },
+      "args": []
+    }
+  ]
+}

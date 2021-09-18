@@ -1,0 +1,192 @@
+{
+  "class": "thermostat",
+  "capabilities": [
+    "measure_battery",
+    "target_temperature",
+    "measure_temperature",
+    "thermostat_mode_smabit"
+  ],
+  "energy": {
+    "batteries": [
+      "AA",
+      "AA"
+    ]
+  },
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "min": 7,
+      "max": 30,
+      "step": 0.5
+    },
+    "measure_temperature": {
+      "title": {
+        "nl": "Werkelijk",
+        "en": "Actual",
+        "de": "Aktuell"
+      }
+    }
+  },
+  "name": {
+    "en": "AV2010/32 Thermostat",
+    "nl": "AV2010/32 Wandthermostaat",
+    "de": "AV2010/32 Wandthermostat"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_32/assets/images/xlarge.png",
+    "large": "/drivers/902010_32/assets/images/large.png",
+    "small": "/drivers/902010_32/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/32",
+      "AV2010/32"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3,
+          4,
+          5,
+          513,
+          516
+        ],
+        "bindings": [
+          513
+        ]
+      }
+    },
+    "learnmode": {
+      "image": "/drivers/902010_32/assets/learnmode.svg",
+      "instruction": {
+        "en": "If the device is not part of a ZigBee network (device not joined), press any of the buttons for at least 1 second to start the join process.\n\nIf no open ZigBee network is found, the termostat will return to the unjoined state (“no NET” message on the LCD-display).\n\nPlease read the user manual for additional information.",
+        "nl": "Als het apparaat geen deel uitmaakt van een ZigBee-netwerk (apparaat niet aangesloten), drukt u op een van de knoppen gedurende ten minste 1 seconde om het joinproces te starten.\n\nAls er geen open ZigBee-netwerk wordt gevonden, keert de termostat terug naar de niet-verbonden staat (“no NET” op het LCD-scherm).\n\nLees de gebruikershandleiding voor meer informatie.",
+        "de": "Wenn das Gerät nicht Teil eines ZigBee-Netzwerks ist (Gerät nicht verbunden), drücken Sie mindestens 1 Sekunde lang eine beliebige Taste, um den Verbindungsvorgang zu starten.\n\nWenn kein offenes ZigBee-Netzwerk gefunden wird, kehrt der Termostat in den nicht verbundenen Zustand zurück (Meldung “no NET” auf dem LCD-Display).\n\nBitte lesen Sie das Benutzerhandbuch, um weitere Informationen zu erhalten."
+      }
+    }
+  },
+  "settings": [
+    {
+      "id": "thermostat_mode",
+      "type": "radio",
+      "label": {
+        "en": "Thermostat Mode",
+        "nl": "Thermostaat Modus",
+        "de": "Thermostat Modus"
+      },
+      "value": "heat",
+      "values": [
+        {
+          "id": "heat",
+          "label": {
+            "en": "Heating mode",
+            "nl": "Verwarmingsmodus",
+            "de": "Heizmodus"
+          }
+        },
+        {
+          "id": "cool",
+          "label": {
+            "en": "Cooling mode",
+            "nl": "Koelmodus",
+            "de": "Kühlmodus"
+          }
+        }
+      ]
+    },
+    {
+      "id": "temp_display_mode",
+      "type": "radio",
+      "label": {
+        "en": "Temperature Display Mode",
+        "nl": "Temperatuur Weergave Modus",
+        "de": "Temperaturanzeigemodus"
+      },
+      "value": "celsius",
+      "values": [
+        {
+          "id": "celsius",
+          "label": {
+            "en": "°C",
+            "nl": "°C",
+            "de": "°C"
+          }
+        },
+        {
+          "id": "fahrenheit",
+          "label": {
+            "en": "°F",
+            "nl": "°F",
+            "de": "°F"
+          }
+        }
+      ],
+      "hint": {
+        "en": "Select whether the temperature on the thermostat dsplay will be displayed in °C or °F.",
+        "nl": "Selecteer of de temperatuur op het display van de thermostaat in °C of °F moet worden weergegeven.",
+        "de": "Wähle aus, ob die Temperatur auf dem Thermostat-Dsplay in °C oder °F anzeigen wird."
+      }
+    },
+    {
+      "id": "keyboard_lockout",
+      "type": "checkbox",
+      "label": {
+        "en": "Key lock",
+        "nl": "Sleutelslot",
+        "de": "Tastensperre"
+      },
+      "hint": {
+        "en": "When active, the temperature can't be manipulated on the device itself.",
+        "nl": "Als hij actief is, kan de temperatuur op het toestel zelf niet worden gewijzigd.",
+        "de": "Wenn sie aktiv ist, kann die Temperatur am Gerät selbst nicht verändert werden."
+      },
+      "value": false
+    },
+    {
+      "id": "temperature_Calibration",
+      "type": "number",
+      "label": {
+        "en": "Temperature Calibration",
+        "nl": "Temperatuurkalibratie",
+        "de": "Temperaturkalibierung"
+      },
+      "hint": {
+        "en": "Specifies a linear offset to the temperature sensor's value.\n\nIt will result in the device interpreting all measured sensor values as measured sensor value + offset.",
+        "nl": "Specificeert een lineaire offset naar de waarde van de temperatuursensor.\n\nHet resultaat is dat het apparaat alle gemeten sensorwaarden interpreteert als gemeten sensorwaarde + offset.",
+        "de": "Gibt einen linearen Versatz zum Wert des Temperatursensors an.\n\nDas Gerät interpretiert alle gemessenen Sensorwerte als gemessenen Sensorwert + Versatz."
+      },
+      "value": 0,
+      "attr": {
+        "step": 0.1,
+        "min": -2.5,
+        "max": 2.5
+      }
+    },
+    {
+      "id": "battery_voltage_max",
+      "type": "number",
+      "label": {
+        "en": "Temperature Calibration",
+        "nl": "Temperatuurkalibratie",
+        "de": "Betterie-Spannung (Volt pro Batterie)"
+      },
+      "hint": {
+        "en": "Indicates the final charge voltage of the batteries.\n\nHomey can calculate the battery condition correctly with this specification, even if rechargeable batteries (like NiZn) are used. The voltage for normal AA alkaline batteries is preset (1.6V).\n\nPlease specify the end of charge voltage for one battery and not a combined value.",
+        "nl": "Geeft het einde van de laadspanning van de batterijen aan.\n\nHomey kan de batterijconditie correct berekenen met deze specificatie, zelfs als oplaadbare batterijen (zoals NiZn) worden gebruikt. Het voltage voor normale AA alkalinebatterijen is vooraf ingesteld (1,6 V).\n\nGelieve de eindelaadspanning voor een batterij op te geven en niet een gecombineerde waarde.",
+        "de": "Gibt die Ladeschlussspannung der Batterien an.\n\nHomey kann mit dieser Angabe den Batteriezustand korrekt berechnen, auch wenn wiederaufladbare Batterien (wie NiZn) verwendet werden. Die Spannung für normale AA-Alkalibatterien ist voreingestellt (1,6 V).\n\nBitte geben Sie die Ladeschlussspannung für eine Batterie an und nicht einen kombinierten Wert."
+      },
+      "value": 1.6,
+      "attr": {
+        "step": 0.1,
+        "min": 1.2,
+        "max": 2
+      }
+    }
+  ]
+}

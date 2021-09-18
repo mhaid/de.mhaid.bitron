@@ -1,0 +1,52 @@
+{
+  "class": "sensor",
+  "capabilities": [
+    "alarm_motion",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR123A"
+    ]
+  },
+  "name": {
+    "en": "AV2010/14 Curtain motion sensor",
+    "nl": "AV2010/14 Gordijn bewegingsmelder",
+    "de": "AV2010/14 Vorhang Bewegungsmelder"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_14/assets/images/xlarge.png",
+    "large": "/drivers/902010_14/assets/images/large.png",
+    "small": "/drivers/902010_14/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/14",
+      "AV2010/14"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3,
+          1280
+        ],
+        "bindings": [
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the function key for about 10 seconds until the red LED lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes twice, the unit has successfully registered.",
+        "nl": "Houd de functietoets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+        "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+      }
+    }
+  }
+}

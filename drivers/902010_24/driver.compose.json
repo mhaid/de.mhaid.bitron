@@ -1,0 +1,54 @@
+{
+  "class": "sensor",
+  "capabilities": [
+    "alarm_smoke",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "AA",
+      "AA",
+      "AA"
+    ]
+  },
+  "name": {
+    "en": "AV2010/24 Optical smoke detector",
+    "nl": "AV2010/24 Optische rookdetector",
+    "de": "AV2010/24 Optischer Rauchmelder"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_24/assets/images/xlarge.png",
+    "large": "/drivers/902010_24/assets/images/large.png",
+    "small": "/drivers/902010_24/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/24",
+      "AV2010/24"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3,
+          1280,
+          1282
+        ],
+        "bindings": []
+      }
+    },
+    "learnmode": {
+      "image": "/drivers/902010_24/assets/learnmode.svg",
+      "instruction": {
+        "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered.\n\nDisclaimer: Do not rely solely on this app under any circumstances, as both Homey and this app may cease to function as expected in the event of a fire.",
+        "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.\n\nDisclaimer: Vertrouw in geen geval alleen op deze app, want zowel Homey als deze app kunnen in geval van brand stoppen met werken zoals verwacht.",
+        "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet.\n\nDisclaimer: Verlassen Sie sich unter keinen Umständen ausschließlich auf diese App, da sowohl Homey als auch diese App im Falle eines Brandes nicht mehr wie erwartet funktionieren könnten."
+      }
+    }
+  }
+}

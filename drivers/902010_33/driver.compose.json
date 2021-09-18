@@ -1,0 +1,52 @@
+{
+  "class": "sensor",
+  "capabilities": [
+    "alarm_motion",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "CR2477"
+    ]
+  },
+  "name": {
+    "en": "AV2010/33 Vibration sensor",
+    "nl": "AV2010/33 Trillingssensor",
+    "de": "AV2010/33 Erschütterungssensor"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_33/assets/images/xlarge.png",
+    "large": "/drivers/902010_33/assets/images/large.png",
+    "small": "/drivers/902010_33/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/33",
+      "AV2010/33"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3,
+          1280
+        ],
+        "bindings": [
+          1280
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the function button on the side of the sensor with a pointed object for about 10 seconds until the red LED on the front lights up once briefly.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+        "nl": "Houd de functietoets aan de zijkant van de sensor met een puntig voorwerp ongeveer 10 seconden ingedrukt tot de rode LED aan de voorkant één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+        "de": "Halten Sie die Funktionstaste an der Seite des Sensors für etwa 10 Sekunden mit einem spitzen Gegenstand gedrückt, bis die rote LED auf der Vorderseite einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+      }
+    }
+  }
+}

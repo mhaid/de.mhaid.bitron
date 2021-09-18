@@ -1,0 +1,56 @@
+{
+  "class": "sensor",
+  "capabilities": [
+    "alarm_generic",
+    "alarm_tamper",
+    "alarm_battery"
+  ],
+  "energy": {
+    "batteries": [
+      "OTHER",
+      "OTHER",
+      "OTHER",
+      "OTHER"
+    ]
+  },
+  "name": {
+    "en": "AV2010/29 Outdoor Siren",
+    "nl": "AV2010/29 Buitensirene",
+    "de": "AV2010/29 Außensirene"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_29/assets/images/xlarge.png",
+    "large": "/drivers/902010_29/assets/images/large.png",
+    "small": "/drivers/902010_29/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/29",
+      "AV2010/29"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          3,
+          1280,
+          1282
+        ],
+        "bindings": []
+      }
+    },
+    "learnmode": {
+      "image": "/drivers/902010_29/assets/learnmode.svg",
+      "instruction": {
+        "en": "Turn on the siren by moving the power switch downwards.\n\nPress and hold the function key for about 10 seconds until the left LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered.,",
+        "nl": "Zet de sirene aan door de schakelaar naar beneden te verplaatsen.\n\nHoud de functieknop 10 seconden ingedrukt tot de linker LEDs kort oplichten.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+        "de": "Bewegen Sie den Netzschalter nach unten.\n\nHalten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die linke LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
 {
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "de.mhaid.bitron",
   "sdk": 3,
   "version": "4.3.4",
@@ -79,7 +80,6 @@
   "support": "mailto:mhaid2016@outlook.com",
   "drivers": [
     {
-      "id": "902010_14",
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
@@ -129,10 +129,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_14"
     },
     {
-      "id": "902010_16",
       "class": "socket",
       "capabilities": [
         "onoff",
@@ -181,10 +181,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_16"
     },
     {
-      "id": "902010_18",
       "class": "socket",
       "capabilities": [
         "onoff"
@@ -231,10 +231,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_18"
     },
     {
-      "id": "902010_21a",
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
@@ -297,10 +297,10 @@
           },
           "value": false
         }
-      ]
+      ],
+      "id": "902010_21a"
     },
     {
-      "id": "902010_21b",
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
@@ -363,10 +363,10 @@
           },
           "value": false
         }
-      ]
+      ],
+      "id": "902010_21b"
     },
     {
-      "id": "902010_21c",
       "class": "sensor",
       "capabilities": [
         "alarm_contact",
@@ -437,10 +437,10 @@
           },
           "value": false
         }
-      ]
+      ],
+      "id": "902010_21c"
     },
     {
-      "id": "902010_22",
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
@@ -492,10 +492,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_22"
     },
     {
-      "id": "902010_22a",
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
@@ -546,10 +546,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_22a"
     },
     {
-      "id": "902010_22b",
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
@@ -602,10 +602,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_22b"
     },
     {
-      "id": "902010_23",
       "class": "remote",
       "capabilities": [],
       "energy": {
@@ -654,10 +654,10 @@
             "de": "Halten Sie die Taste •• für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_23"
     },
     {
-      "id": "902010_24",
       "class": "sensor",
       "capabilities": [
         "alarm_smoke",
@@ -709,10 +709,10 @@
             "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet.\n\nDisclaimer: Verlassen Sie sich unter keinen Umständen ausschließlich auf diese App, da sowohl Homey als auch diese App im Falle eines Brandes nicht mehr wie erwartet funktionieren könnten."
           }
         }
-      }
+      },
+      "id": "902010_24"
     },
     {
-      "id": "902010_24a",
       "class": "sensor",
       "capabilities": [
         "alarm_smoke",
@@ -764,10 +764,10 @@
             "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet.\n\nDisclaimer: Verlassen Sie sich unter keinen Umständen ausschließlich auf diese App, da sowohl Homey als auch diese App im Falle eines Brandes nicht mehr wie erwartet funktionieren könnten."
           }
         }
-      }
+      },
+      "id": "902010_24a"
     },
     {
-      "id": "902010_25",
       "class": "socket",
       "capabilities": [
         "onoff",
@@ -817,10 +817,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_25"
     },
     {
-      "id": "902010_26",
       "class": "socket",
       "capabilities": [
         "onoff",
@@ -869,10 +869,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_26"
     },
     {
-      "id": "902010_28",
       "class": "socket",
       "capabilities": [
         "onoff"
@@ -919,10 +919,10 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt. Während dieser 10 Sekunden wird die Funktionstaste mehrmals rot aufleuchten.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_28"
     },
-	{
-      "id": "902010_29",
+    {
       "class": "sensor",
       "capabilities": [
         "alarm_generic",
@@ -976,10 +976,10 @@
             "de": "Bewegen Sie den Netzschalter nach unten.\n\nHalten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die linke LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_29"
     },
     {
-      "id": "902010_29a",
       "class": "sensor",
       "capabilities": [
         "alarm_generic",
@@ -1031,10 +1031,10 @@
             "de": "Bewegen Sie den Netzschalter (5) nach unten.\n\nHalten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis die linke LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_29a"
     },
     {
-      "id": "902010_32",
       "class": "thermostat",
       "capabilities": [
         "measure_battery",
@@ -1224,10 +1224,10 @@
             "max": 2
           }
         }
-      ]
+      ],
+      "id": "902010_32"
     },
     {
-      "id": "902010_33",
       "class": "sensor",
       "capabilities": [
         "alarm_motion",
@@ -1277,10 +1277,10 @@
             "de": "Halten Sie die Funktionstaste an der Seite des Sensors für etwa 10 Sekunden mit einem spitzen Gegenstand gedrückt, bis die rote LED auf der Vorderseite einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_33"
     },
     {
-      "id": "902010_34",
       "class": "remote",
       "capabilities": [],
       "energy": {
@@ -1331,10 +1331,10 @@
             "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_34"
     },
     {
-      "id": "902010_37",
       "class": "sensor",
       "capabilities": [
         "alarm_water",
@@ -1385,9 +1385,515 @@
             "de": "Halten Sie die Funktionstaste für etwa 10 Sekunden gedrückt, bis Sie einen kurzen Signalton hören.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
           }
         }
-      }
+      },
+      "id": "902010_37"
     }
   ],
+  "flow": {
+    "triggers": [
+      {
+        "id": "on_button1_23",
+        "title": {
+          "en": "Button 1 pressed",
+          "nl": "Knop 1 ingedrukt",
+          "de": "Taste 1 gedrückt",
+          "fr": "Bouton 1 enfoncé",
+          "it": "Tasto 1 premuto",
+          "sv": "Knapp 1 tryckt in",
+          "no": "Knapp 1 ble trykket",
+          "es": "Botón 1 pulsado",
+          "da": "Knap 1 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button2_23",
+        "title": {
+          "en": "Button 2 pressed",
+          "nl": "Knop 2 ingedrukt",
+          "de": "Taste 2 gedrückt",
+          "fr": "Bouton 2 enfoncé",
+          "it": "Tasto 2 premuto",
+          "sv": "Knapp 2 tryckt in",
+          "no": "Knapp 2 ble trykket",
+          "es": "Botón 2 pulsado",
+          "da": "Knap 2 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button3_23",
+        "title": {
+          "en": "Button 3 pressed",
+          "nl": "Knop 3 ingedrukt",
+          "de": "Taste 3 gedrückt",
+          "fr": "Bouton 3 enfoncé",
+          "it": "Tasto 3 premuto",
+          "sv": "Knapp 3 tryckt in",
+          "no": "Knapp 3 ble trykket",
+          "es": "Botón 3 pulsado",
+          "da": "Knap 3 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button4_23",
+        "title": {
+          "en": "Button 4 pressed",
+          "nl": "Knop 4 ingedrukt",
+          "de": "Taste 4 gedrückt",
+          "fr": "Bouton 4 enfoncé",
+          "it": "Tasto 4 premuto",
+          "sv": "Knapp 4 tryckt in",
+          "no": "Knapp 4 ble trykket",
+          "es": "Botón 4 pulsado",
+          "da": "Knap 4 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_23"
+          }
+        ]
+      },
+      {
+        "id": "on_button0_34",
+        "title": {
+          "en": "Button 0 pressed",
+          "nl": "Knop 0 ingedrukt",
+          "de": "Taste 0 gedrückt",
+          "fr": "Bouton 0 enfoncé",
+          "it": "Tasto 0 premuto",
+          "sv": "Knapp 0 tryckt in",
+          "no": "Knapp 0 ble trykket",
+          "es": "Botón 0 pulsado",
+          "da": "Knap 0 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button1_34",
+        "title": {
+          "en": "Button 1 pressed",
+          "nl": "Knop 1 ingedrukt",
+          "de": "Taste 1 gedrückt",
+          "fr": "Bouton 1 enfoncé",
+          "it": "Tasto 1 premuto",
+          "sv": "Knapp 1 tryckt in",
+          "no": "Knapp 1 ble trykket",
+          "es": "Botón 1 pulsado",
+          "da": "Knap 1 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button2_34",
+        "title": {
+          "en": "Button 2 pressed",
+          "nl": "Knop 2 ingedrukt",
+          "de": "Taste 2 gedrückt",
+          "fr": "Bouton 2 enfoncé",
+          "it": "Tasto 2 premuto",
+          "sv": "Knapp 2 tryckt in",
+          "no": "Knapp 2 ble trykket",
+          "es": "Botón 2 pulsado",
+          "da": "Knap 2 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button3_34",
+        "title": {
+          "en": "Button 3 pressed",
+          "nl": "Knop 3 ingedrukt",
+          "de": "Taste 3 gedrückt",
+          "fr": "Bouton 3 enfoncé",
+          "it": "Tasto 3 premuto",
+          "sv": "Knapp 3 tryckt in",
+          "no": "Knapp 3 ble trykket",
+          "es": "Botón 3 pulsado",
+          "da": "Knap 3 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      },
+      {
+        "id": "on_button4_34",
+        "title": {
+          "en": "Button 4 pressed",
+          "nl": "Knop 4 ingedrukt",
+          "de": "Taste 4 gedrückt",
+          "fr": "Bouton 4 enfoncé",
+          "it": "Tasto 4 premuto",
+          "sv": "Knapp 4 tryckt in",
+          "no": "Knapp 4 ble trykket",
+          "es": "Botón 4 pulsado",
+          "da": "Knap 4 er trykket ned"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_34"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "24_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "24_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24"
+          }
+        ]
+      },
+      {
+        "id": "24_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24"
+          }
+        ]
+      },
+      {
+        "id": "24A_siren_test",
+        "title": {
+          "en": "Test siren",
+          "de": "Sirene testen",
+          "nl": "Test sirene"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24a"
+          }
+        ]
+      },
+      {
+        "id": "24A_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24a"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "24A_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24a"
+          }
+        ]
+      },
+      {
+        "id": "24A_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_24a"
+          }
+        ]
+      },
+      {
+        "id": "29_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "29_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29"
+          }
+        ]
+      },
+      {
+        "id": "29_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29"
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_test",
+        "title": {
+          "en": "Test siren",
+          "de": "Sirene testen",
+          "nl": "Test sirene"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29a"
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_timer",
+        "title": {
+          "en": "Switch on siren for X Seconds",
+          "de": "Sirene für X Sekunden einschalten",
+          "nl": "Zet sirene aan voor X seconden"
+        },
+        "titleFormatted": {
+          "en": "Switch on siren for [[duration]] Seconds",
+          "de": "Sirene für [[duration]] Sekunden einschalten",
+          "nl": "Zet sirene aan voor [[duration]] seconden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29a"
+          },
+          {
+            "type": "number",
+            "name": "duration",
+            "min": 0,
+            "max": 65535,
+            "step": 1,
+            "label": {
+              "en": "Seconds",
+              "de": "Sekunden",
+              "nl": "Seconden"
+            },
+            "placeholder": {
+              "en": "120"
+            },
+            "title": {
+              "en": "Duration of alarm in seconds",
+              "de": "Dauer des Alarms in Sekunden",
+              "nl": "Duur van het alarm in seconden"
+            }
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_on",
+        "title": {
+          "en": "Switch on siren indefinitely",
+          "de": "Sirene auf unbestimmte Zeit einschalten",
+          "nl": "Zet de sirene aan voor onbepaalde tijd"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29a"
+          }
+        ]
+      },
+      {
+        "id": "29A_siren_off",
+        "title": {
+          "en": "Switch off siren",
+          "de": "Sirene ausschalten",
+          "nl": "Zet de sirene van."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=902010_29a"
+          }
+        ]
+      }
+    ]
+  },
   "capabilities": {
     "thermostat_mode_smabit": {
       "type": "enum",
@@ -1445,670 +1951,7 @@
       ],
       "getable": true,
       "setable": true,
-      "uiComponent": "picker",
-      "$flow": {
-        "triggers": [
-          {
-            "id": "thermostat_mode_changed",
-            "title": {
-              "en": "Thermostat mode has changed",
-              "nl": "Thermostaat modus is veranderd",
-              "de": "Thermostat-Modus hat sich geändert",
-              "fr": "Mode thermostat a été modifié",
-              "it": "La modalità del termostato è cambiata",
-              "sv": "Termostatläge ändrades",
-              "no": "Termostatmodus ble endret",
-              "es": "El modo del termostato ha cambiado",
-              "da": "Termostattilstand er blevet ændret"
-            },
-            "args": [
-              {
-                "name": "thermostat_mode",
-                "type": "dropdown",
-                "values": [
-                  {
-                    "id": "auto",
-                    "title": {
-                      "en": "Acitv",
-                      "nl": "Actief",
-                      "de": "Aktitv",
-                      "fr": "Actif",
-                      "it": "Attivo",
-                      "sv": "Aktiva",
-                      "no": "Aktiv",
-                      "es": "Activo",
-                      "da": "Aktiv"
-                    }
-                  },
-                  {
-                    "id": "off",
-                    "title": {
-                      "en": "Off",
-                      "nl": "Uit",
-                      "de": "Aus",
-                      "fr": "Désactivé",
-                      "it": "Disattivata",
-                      "sv": "Av",
-                      "no": "Av",
-                      "es": "Desactivado",
-                      "da": "Deaktiveret"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "conditions": [
-          {
-            "id": "thermostat_mode_is",
-            "title": {
-              "en": "Thermostat mode !{{is|is not}}",
-              "nl": "Thermostaat modus !{{is|is niet}}",
-              "de": "Thermostat-Modus !{{ist|ist nicht}}",
-              "fr": "Mode thermostat !{{est|n'est pas}}",
-              "it": "La modalità del termostato !{{è|non è}}",
-              "sv": "Termostatläge !{{är|är inte}}",
-              "no": "Termostatmodus !{{er|er ikke}}",
-              "es": "El modo del termostato !{{está|no está}}",
-              "da": "Termostattilstand !{{er|er ikke}}"
-            },
-            "args": [
-              {
-                "name": "thermostat_mode",
-                "type": "dropdown",
-                "values": [
-                  {
-                    "id": "auto",
-                    "title": {
-                      "en": "Acitv",
-                      "nl": "Actief",
-                      "de": "Aktitv",
-                      "fr": "Actif",
-                      "it": "Attivo",
-                      "sv": "Aktiva",
-                      "no": "Aktiv",
-                      "es": "Activo",
-                      "da": "Aktiv"
-                    }
-                  },
-                  {
-                    "id": "off",
-                    "title": {
-                      "en": "Off",
-                      "nl": "Uit",
-                      "de": "Aus",
-                      "fr": "Désactivé",
-                      "it": "Disattivata",
-                      "sv": "Av",
-                      "no": "Av",
-                      "es": "Desactivado",
-                      "da": "Deaktiveret"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "actions": [
-          {
-            "id": "thermostat_mode_set",
-            "title": {
-              "en": "Set the mode",
-              "nl": "Stel de modus in",
-              "de": "Modus setzen",
-              "fr": "Définir le mode",
-              "it": "Imposta la modalità",
-              "sv": "Ställ in läget",
-              "no": "Innstill modusen",
-              "es": "Configurar el modo",
-              "da": "Indstil tilstanden"
-            },
-            "args": [
-              {
-                "name": "thermostat_mode",
-                "type": "dropdown",
-                "values": [
-                  {
-                    "id": "auto",
-                    "title": {
-                      "en": "Acitv",
-                      "nl": "Actief",
-                      "de": "Aktitv",
-                      "fr": "Actif",
-                      "it": "Attivo",
-                      "sv": "Aktiva",
-                      "no": "Aktiv",
-                      "es": "Activo",
-                      "da": "Aktiv"
-                    }
-                  },
-                  {
-                    "id": "off",
-                    "title": {
-                      "en": "Off",
-                      "nl": "Uit",
-                      "de": "Aus",
-                      "fr": "Désactivé",
-                      "it": "Disattivata",
-                      "sv": "Av",
-                      "no": "Av",
-                      "es": "Desactivado",
-                      "da": "Deaktiveret"
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+      "uiComponent": "picker"
     }
-  },
-  "flow": {
-    "triggers": [
-      {
-        "id": "on_button1_23",
-        "title": {
-          "en": "Button 1 pressed",
-          "nl": "Knop 1 ingedrukt",
-          "de": "Taste 1 gedrückt",
-          "fr": "Bouton 1 enfoncé",
-          "it": "Tasto 1 premuto",
-          "sv": "Knapp 1 tryckt in",
-          "no": "Knapp 1 ble trykket",
-          "es": "Botón 1 pulsado",
-          "da": "Knap 1 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_23"
-          }
-        ]
-      },
-      {
-        "id": "on_button2_23",
-        "title": {
-          "en": "Button 2 pressed",
-          "nl": "Knop 2 ingedrukt",
-          "de": "Taste 2 gedrückt",
-          "fr": "Bouton 2 enfoncé",
-          "it": "Tasto 2 premuto",
-          "sv": "Knapp 2 tryckt in",
-          "no": "Knapp 2 ble trykket",
-          "es": "Botón 2 pulsado",
-          "da": "Knap 2 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_23"
-          }
-        ]
-      },
-      {
-        "id": "on_button3_23",
-        "title": {
-          "en": "Button 3 pressed",
-          "nl": "Knop 3 ingedrukt",
-          "de": "Taste 3 gedrückt",
-          "fr": "Bouton 3 enfoncé",
-          "it": "Tasto 3 premuto",
-          "sv": "Knapp 3 tryckt in",
-          "no": "Knapp 3 ble trykket",
-          "es": "Botón 3 pulsado",
-          "da": "Knap 3 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_23"
-          }
-        ]
-      },
-      {
-        "id": "on_button4_23",
-        "title": {
-          "en": "Button 4 pressed",
-          "nl": "Knop 4 ingedrukt",
-          "de": "Taste 4 gedrückt",
-          "fr": "Bouton 4 enfoncé",
-          "it": "Tasto 4 premuto",
-          "sv": "Knapp 4 tryckt in",
-          "no": "Knapp 4 ble trykket",
-          "es": "Botón 4 pulsado",
-          "da": "Knap 4 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_23"
-          }
-        ]
-      },
-      {
-        "id": "on_button0_34",
-        "title": {
-          "en": "Button 0 pressed",
-          "nl": "Knop 0 ingedrukt",
-          "de": "Taste 0 gedrückt",
-          "fr": "Bouton 0 enfoncé",
-          "it": "Tasto 0 premuto",
-          "sv": "Knapp 0 tryckt in",
-          "no": "Knapp 0 ble trykket",
-          "es": "Botón 0 pulsado",
-          "da": "Knap 0 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_34"
-          }
-        ]
-      },
-      {
-        "id": "on_button1_34",
-        "title": {
-          "en": "Button 1 pressed",
-          "nl": "Knop 1 ingedrukt",
-          "de": "Taste 1 gedrückt",
-          "fr": "Bouton 1 enfoncé",
-          "it": "Tasto 1 premuto",
-          "sv": "Knapp 1 tryckt in",
-          "no": "Knapp 1 ble trykket",
-          "es": "Botón 1 pulsado",
-          "da": "Knap 1 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_34"
-          }
-        ]
-      },
-      {
-        "id": "on_button2_34",
-        "title": {
-          "en": "Button 2 pressed",
-          "nl": "Knop 2 ingedrukt",
-          "de": "Taste 2 gedrückt",
-          "fr": "Bouton 2 enfoncé",
-          "it": "Tasto 2 premuto",
-          "sv": "Knapp 2 tryckt in",
-          "no": "Knapp 2 ble trykket",
-          "es": "Botón 2 pulsado",
-          "da": "Knap 2 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_34"
-          }
-        ]
-      },
-      {
-        "id": "on_button3_34",
-        "title": {
-          "en": "Button 3 pressed",
-          "nl": "Knop 3 ingedrukt",
-          "de": "Taste 3 gedrückt",
-          "fr": "Bouton 3 enfoncé",
-          "it": "Tasto 3 premuto",
-          "sv": "Knapp 3 tryckt in",
-          "no": "Knapp 3 ble trykket",
-          "es": "Botón 3 pulsado",
-          "da": "Knap 3 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_34"
-          }
-        ]
-      },
-      {
-        "id": "on_button4_34",
-        "title": {
-          "en": "Button 4 pressed",
-          "nl": "Knop 4 ingedrukt",
-          "de": "Taste 4 gedrückt",
-          "fr": "Bouton 4 enfoncé",
-          "it": "Tasto 4 premuto",
-          "sv": "Knapp 4 tryckt in",
-          "no": "Knapp 4 ble trykket",
-          "es": "Botón 4 pulsado",
-          "da": "Knap 4 er trykket ned"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_34"
-          }
-        ]
-      }
-    ],
-    "actions": [
-      {
-        "id": "24_siren_timer",
-        "title": {
-          "en": "Switch on siren for X Seconds",
-          "de": "Sirene für X Sekunden einschalten",
-          "nl": "Zet sirene aan voor X seconden"
-        },
-        "titleFormatted": {
-          "en": "Switch on siren for [[duration]] Seconds",
-          "de": "Sirene für [[duration]] Sekunden einschalten",
-          "nl": "Zet sirene aan voor [[duration]] seconden"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24"
-          },
-          {
-            "type": "number",
-            "name": "duration",
-            "min": 0,
-            "max": 65535,
-            "step": 1,
-            "label": {
-              "en": "Seconds",
-              "de": "Sekunden",
-              "nl": "Seconden"
-            },
-            "placeholder": {
-              "en": "120"
-            },
-            "title": {
-              "en": "Duration of alarm in seconds",
-              "de": "Dauer des Alarms in Sekunden",
-              "nl": "Duur van het alarm in seconden"
-            }
-          }
-        ]
-      },
-      {
-        "id": "24_siren_on",
-        "title": {
-          "en": "Switch on siren indefinitely",
-          "de": "Sirene auf unbestimmte Zeit einschalten",
-          "nl": "Zet de sirene aan voor onbepaalde tijd"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24"
-          }
-        ]
-      },
-      {
-        "id": "24_siren_off",
-        "title": {
-          "en": "Switch off siren",
-          "de": "Sirene ausschalten",
-          "nl": "Zet de sirene van."
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24"
-          }
-        ]
-      },
-	  {
-        "id": "24A_siren_test",
-        "title": {
-          "en": "Test siren",
-          "de": "Sirene testen",
-          "nl": "Test sirene"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24a"
-          }
-        ]
-      },
-	  {
-        "id": "24A_siren_timer",
-        "title": {
-          "en": "Switch on siren for X Seconds",
-          "de": "Sirene für X Sekunden einschalten",
-          "nl": "Zet sirene aan voor X seconden"
-        },
-        "titleFormatted": {
-          "en": "Switch on siren for [[duration]] Seconds",
-          "de": "Sirene für [[duration]] Sekunden einschalten",
-          "nl": "Zet sirene aan voor [[duration]] seconden"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24a"
-          },
-          {
-            "type": "number",
-            "name": "duration",
-            "min": 0,
-            "max": 65535,
-            "step": 1,
-            "label": {
-              "en": "Seconds",
-              "de": "Sekunden",
-              "nl": "Seconden"
-            },
-            "placeholder": {
-              "en": "120"
-            },
-            "title": {
-              "en": "Duration of alarm in seconds",
-              "de": "Dauer des Alarms in Sekunden",
-              "nl": "Duur van het alarm in seconden"
-            }
-          }
-        ]
-      },
-      {
-        "id": "24A_siren_on",
-        "title": {
-          "en": "Switch on siren indefinitely",
-          "de": "Sirene auf unbestimmte Zeit einschalten",
-          "nl": "Zet de sirene aan voor onbepaalde tijd"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24a"
-          }
-        ]
-      },
-      {
-        "id": "24A_siren_off",
-        "title": {
-          "en": "Switch off siren",
-          "de": "Sirene ausschalten",
-          "nl": "Zet de sirene van."
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_24a"
-          }
-        ]
-      },
-	  {
-        "id": "29_siren_timer",
-        "title": {
-          "en": "Switch on siren for X Seconds",
-          "de": "Sirene für X Sekunden einschalten",
-          "nl": "Zet sirene aan voor X seconden"
-        },
-        "titleFormatted": {
-          "en": "Switch on siren for [[duration]] Seconds",
-          "de": "Sirene für [[duration]] Sekunden einschalten",
-          "nl": "Zet sirene aan voor [[duration]] seconden"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29"
-          },
-          {
-            "type": "number",
-            "name": "duration",
-            "min": 0,
-            "max": 65535,
-            "step": 1,
-            "label": {
-              "en": "Seconds",
-              "de": "Sekunden",
-              "nl": "Seconden"
-            },
-            "placeholder": {
-              "en": "120"
-            },
-            "title": {
-              "en": "Duration of alarm in seconds",
-              "de": "Dauer des Alarms in Sekunden",
-              "nl": "Duur van het alarm in seconden"
-            }
-          }
-        ]
-      },
-      {
-        "id": "29_siren_on",
-        "title": {
-          "en": "Switch on siren indefinitely",
-          "de": "Sirene auf unbestimmte Zeit einschalten",
-          "nl": "Zet de sirene aan voor onbepaalde tijd"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29"
-          }
-        ]
-      },
-      {
-        "id": "29_siren_off",
-        "title": {
-          "en": "Switch off siren",
-          "de": "Sirene ausschalten",
-          "nl": "Zet de sirene van."
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29"
-          }
-        ]
-      },
-      {
-        "id": "29A_siren_test",
-        "title": {
-          "en": "Test siren",
-          "de": "Sirene testen",
-          "nl": "Test sirene"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29a"
-          }
-        ]
-      },
-      {
-        "id": "29A_siren_timer",
-        "title": {
-          "en": "Switch on siren for X Seconds",
-          "de": "Sirene für X Sekunden einschalten",
-          "nl": "Zet sirene aan voor X seconden"
-        },
-        "titleFormatted": {
-          "en": "Switch on siren for [[duration]] Seconds",
-          "de": "Sirene für [[duration]] Sekunden einschalten",
-          "nl": "Zet sirene aan voor [[duration]] seconden"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29a"
-          },
-          {
-            "type": "number",
-            "name": "duration",
-            "min": 0,
-            "max": 65535,
-            "step": 1,
-            "label": {
-              "en": "Seconds",
-              "de": "Sekunden",
-              "nl": "Seconden"
-            },
-            "placeholder": {
-              "en": "120"
-            },
-            "title": {
-              "en": "Duration of alarm in seconds",
-              "de": "Dauer des Alarms in Sekunden",
-              "nl": "Duur van het alarm in seconden"
-            }
-          }
-        ]
-      },
-      {
-        "id": "29A_siren_on",
-        "title": {
-          "en": "Switch on siren indefinitely",
-          "de": "Sirene auf unbestimmte Zeit einschalten",
-          "nl": "Zet de sirene aan voor onbepaalde tijd"
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29a"
-          }
-        ]
-      },
-      {
-        "id": "29A_siren_off",
-        "title": {
-          "en": "Switch off siren",
-          "de": "Sirene ausschalten",
-          "nl": "Zet de sirene van."
-        },
-        "args": [
-          {
-            "name": "my_device",
-            "type": "device",
-            "filter": "driver_id=902010_29a"
-          }
-        ]
-      }
-    ]
   }
 }

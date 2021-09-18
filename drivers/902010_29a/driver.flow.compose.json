@@ -1,0 +1,66 @@
+{
+  "actions": [
+    {
+      "id": "29A_siren_test",
+      "title": {
+        "en": "Test siren",
+        "de": "Sirene testen",
+        "nl": "Test sirene"
+      },
+      "args": []
+    },
+    {
+      "id": "29A_siren_timer",
+      "title": {
+        "en": "Switch on siren for X Seconds",
+        "de": "Sirene für X Sekunden einschalten",
+        "nl": "Zet sirene aan voor X seconden"
+      },
+      "titleFormatted": {
+        "en": "Switch on siren for [[duration]] Seconds",
+        "de": "Sirene für [[duration]] Sekunden einschalten",
+        "nl": "Zet sirene aan voor [[duration]] seconden"
+      },
+      "args": [
+        {
+          "type": "number",
+          "name": "duration",
+          "min": 0,
+          "max": 65535,
+          "step": 1,
+          "label": {
+            "en": "Seconds",
+            "de": "Sekunden",
+            "nl": "Seconden"
+          },
+          "placeholder": {
+            "en": "120"
+          },
+          "title": {
+            "en": "Duration of alarm in seconds",
+            "de": "Dauer des Alarms in Sekunden",
+            "nl": "Duur van het alarm in seconden"
+          }
+        }
+      ]
+    },
+    {
+      "id": "29A_siren_on",
+      "title": {
+        "en": "Switch on siren indefinitely",
+        "de": "Sirene auf unbestimmte Zeit einschalten",
+        "nl": "Zet de sirene aan voor onbepaalde tijd"
+      },
+      "args": []
+    },
+    {
+      "id": "29A_siren_off",
+      "title": {
+        "en": "Switch off siren",
+        "de": "Sirene ausschalten",
+        "nl": "Zet de sirene van."
+      },
+      "args": []
+    }
+  ]
+}

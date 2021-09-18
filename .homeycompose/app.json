@@ -1,0 +1,80 @@
+{
+  "id": "de.mhaid.bitron",
+  "sdk": 3,
+  "version": "4.3.4",
+  "compatibility": ">=5.0.0",
+  "brandColor": "#005a87",
+  "name": {
+    "en": "SMaBiT (Bitron Video)",
+    "nl": "SMaBiT (Bitron Video)",
+    "de": "SMaBiT (Bitron Video)"
+  },
+  "description": {
+    "en": "We want your safety, not your data.",
+    "nl": "We want your safety, not your data.",
+    "de": "Wir möchten Ihre Sicherheit, nicht Ihre Daten.",
+    "es": "Queremos tu seguridad, no tus datos."
+  },
+  "category": "security",
+  "tags": {
+    "en": [
+      "Bitron",
+      "SMaBiT",
+      "thermostat",
+      "smart plug",
+      "smoke detector",
+      "magnetic contact",
+      "movement detector"
+    ],
+    "nl": [
+      "Bitron",
+      "SMaBiT",
+      "thermostaat",
+      "smart plug",
+      "rookmelder",
+      "deurcontact",
+      "bewegings melder"
+    ],
+    "de": [
+      "Bitron",
+      "SMaBiT",
+      "Thermostat",
+      "Smart Plug",
+      "Intelligente Steckdose",
+      "Rauchmelder",
+      "Türkontakt",
+      "Bewegungssensor"
+    ]
+  },
+  "images": {
+    "xlarge": "/assets/images/xlarge.jpg",
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "author": {
+    "email": "mhaid2016@outlook.com",
+    "name": "Morris Haid"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "email": "moh2014@live.de",
+        "name": "Michael Haid"
+      },
+      {
+        "email": "mhaid2016@outlook.com",
+        "name": "Morris Haid"
+      },
+      {
+        "email": "menno.van.eck@gmail.com",
+        "name": "Menno van Eck"
+      }
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/mhaid/de.mhaid.bitron/issues"
+  },
+  "source": "https://github.com/mhaid/de.mhaid.bitron/",
+  "homepage": "https://en.smabit.eu",
+  "support": "mailto:mhaid2016@outlook.com"
+}

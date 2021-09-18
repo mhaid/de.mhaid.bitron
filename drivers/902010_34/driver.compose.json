@@ -1,0 +1,53 @@
+{
+  "class": "remote",
+  "capabilities": [],
+  "energy": {
+    "batteries": [
+      "AA",
+      "AA"
+    ]
+  },
+  "name": {
+    "en": "AV2010/34 Wall switch with 4 buttons",
+    "nl": "AV2010/34 Wandschakelaar met 4 functietoetsen",
+    "de": "AV2010/34 Wandschalter mit 4 Funktionstasten"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_34/assets/images/xlarge.png",
+    "large": "/drivers/902010_34/assets/images/large.png",
+    "small": "/drivers/902010_34/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/34",
+      "AV2010/34"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3
+        ],
+        "bindings": [
+          4,
+          5,
+          6,
+          8
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the function key on the top of the sensor for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+        "nl": "Houd de functietoets op de bovenkant van de sensor ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+        "de": "Halten Sie die Funktionstaste an der Oberseite des Sensors für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+      }
+    }
+  }
+}

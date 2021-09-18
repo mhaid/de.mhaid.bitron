@@ -1,0 +1,51 @@
+{
+  "class": "remote",
+  "capabilities": [],
+  "energy": {
+    "batteries": [
+      "CR2032"
+    ]
+  },
+  "name": {
+    "en": "AV2010/23 4-button remote control",
+    "nl": "AV2010/23 4-knops afstandsbediening",
+    "de": "AV2010/23 4‐Tasten Fernbedienung"
+  },
+  "images": {
+    "xlarge": "/drivers/902010_23/assets/images/xlarge.png",
+    "large": "/drivers/902010_23/assets/images/large.png",
+    "small": "/drivers/902010_23/assets/images/small.png"
+  },
+  "zigbee": {
+    "manufacturerName": [
+      "SMaBiT",
+      "Bitron Home",
+      "Bitron Video"
+    ],
+    "productId": [
+      "902010/23",
+      "AV2010/23"
+    ],
+    "endpoints": {
+      "1": {
+        "clusters": [
+          0,
+          1,
+          3
+        ],
+        "bindings": [
+          4,
+          6,
+          8
+        ]
+      }
+    },
+    "learnmode": {
+      "instruction": {
+        "en": "Press and hold the •• key for about 10 seconds until the red LED briefly lights up once.\n\nDuring the search, the LED lights up red once every 10 seconds. When the LED flashes 2 times, the device has successfully registered ",
+        "nl": "Houd de •• toets ongeveer 10 seconden ingedrukt tot de rode LED één keer kort oplicht.\n\nTijdens het zoeken licht de LED om de 10 seconden rood op. Als de LED 2 keer knippert, is het apparaat succesvol geregistreerd.",
+        "de": "Halten Sie die Taste •• für etwa 10 Sekunden gedrückt, bis die rote LED einmal kurz aufleuchtet.\n\nWährend der Suche leuchtet die LED alle 10 Sekunden einmal rot auf. Wenn die LED 2 Mal blinkt, hat sich das Gerät erfolgreich angemeldet."
+      }
+    }
+  }
+}
